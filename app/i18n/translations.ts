@@ -7,7 +7,7 @@ export const translations = {
 		},
 		hero: {
 			title: "Destroy limits,\nBUILD STRENGTH",
-			description: "Scopri Shine — School of Movement. Corsi di parkour per tutte le età.",
+			description: "Corsi di parkour per tutte le età",
 			cta: "Esplora i nostri corsi",
 		},
 		courses: {
@@ -64,7 +64,7 @@ export const translations = {
 		},
 		hero: {
 			title: "Destroy limits,\nBUILD STRENGTH",
-			description: "Discover Shine — School of Movement. Parkour courses for all ages.",
+			description: "Parkour courses for all ages",
 			cta: "Explore our courses",
 		},
 		courses: {

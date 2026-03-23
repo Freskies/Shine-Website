@@ -2,6 +2,7 @@
 
 import { useTranslation } from '@/app/hooks/useTranslation';
 import React from "react";
+import Image from "next/image";
 
 export const Hero = () => {
 	const { t } = useTranslation();
@@ -17,10 +18,12 @@ export const Hero = () => {
 	return <section
 		className="min-h-dvh flex flex-col items-center justify-center text-center px-[1em] py-[6em] relative overflow-hidden bg-black">
 		<div className="absolute inset-0 z-0">
-			<img
-				src="/hero-background.jpg"
+			<Image
+				src="/IMG_7604.webp"
 				alt="Parkour Background"
-				className="w-full h-full object-cover opacity-60"
+				fill
+				priority
+				className="object-cover opacity-25"
 			/>
 			<div className="absolute inset-x-0 bottom-0 h-[30%] bg-linear-to-t from-zinc-50 to-transparent"/>
 		</div>

@@ -11,14 +11,12 @@ export const useTranslation = () => {
 			const browserLang = navigator.language.split('-')[0];
 			if (browserLang === 'en' || browserLang === 'it')
 				setLang(browserLang as Language);
-			// DEBUG ONLY
-			setLang('it');
 		};
 
 		updateLang();
 		window.addEventListener('languagechange', updateLang);
 		return () => window.removeEventListener('languagechange', updateLang);
-	}, [setLang]);
+	}, []);
 
 	const t = translations[lang] as TranslationKeys;
 
