@@ -18,6 +18,15 @@ export const translations = {
 			kids: "Bambini",
 			teens: "Ragazzi",
 			adults: "Adulti",
+			days: {
+				mon: "Lun",
+				tue: "Mar",
+				wed: "Mer",
+				thu: "Gio",
+				fri: "Ven",
+				sat: "Sab",
+				sun: "Dom",
+			},
 		},
 		pricing: {
 			title: "Prezzi",
@@ -75,6 +84,15 @@ export const translations = {
 			kids: "Kids",
 			teens: "Teens",
 			adults: "Adults",
+			days: {
+				mon: "Mon",
+				tue: "Tue",
+				wed: "Wed",
+				thu: "Thu",
+				fri: "Fri",
+				sat: "Sat",
+				sun: "Sun",
+			},
 		},
 		pricing: {
 			title: "Pricing",
