@@ -14,6 +14,8 @@ export const en = {
 		ageRange: "Age Range",
 		schedule: "Schedule",
 		description: "Description",
+		coach: "The Coach",
+		leadInstructor: "Lead Instructor",
 		notFound: "Course not found",
 		notFoundDescription: "The requested course does not exist.",
 		cta: "Learn more",

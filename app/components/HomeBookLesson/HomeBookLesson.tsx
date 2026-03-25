@@ -25,7 +25,7 @@ export const HomeBookLesson = () => {
 
 	return (
 		<section id="book-lesson-home" className="py-[6em] px-[1em] bg-zinc-50">
-			<div className="max-w-[50rem] mx-auto">
+			<div className="max-w-200 mx-auto">
 				<div className="text-center mb-[4em]">
 					<h2 className="text-[2.5em] font-bold mb-[0.5em] leading-tight">{t.bookLesson.title}</h2>
 					<div className="flex justify-center">

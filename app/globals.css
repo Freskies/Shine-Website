@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
+@source "./**/*.{ts,tsx}";
+
 @theme {
+	--spacing-header-height: 8em;
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--color-accent: #763E3F;
 	--color-second: #b0a990;
+	--color-second-light: #f5f4f0;
 	--color-black: #000000;
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
