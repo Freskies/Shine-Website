@@ -69,9 +69,13 @@ export const en = {
 	},
 	about: {
 		title: "About Us",
+		storyTitle: "Our story",
 		story: "Our story...",
+		parkourStoryTitle: "Story of Parkour",
 		parkourStory: "Story of Parkour...",
+		whyParkourTitle: "Why do Parkour?",
 		whyParkour: "Why do Parkour?",
+		gymTitle: "Our gym",
 		gym: "Our gym...",
 	},
 	team: {

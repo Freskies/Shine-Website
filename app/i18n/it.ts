@@ -69,9 +69,13 @@ export const it = {
 	},
 	about: {
 		title: "Chi Siamo",
+		storyTitle: "La nostra storia",
 		story: "La nostra storia...",
+		parkourStoryTitle: "Storia del Parkour",
 		parkourStory: "Storia del Parkour...",
+		whyParkourTitle: "Perché fare Parkour?",
 		whyParkour: "Perché fare Parkour?",
+		gymTitle: "La nostra palestra",
 		gym: "La nostra palestra...",
 	},
 	team: {
