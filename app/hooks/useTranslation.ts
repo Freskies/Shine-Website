@@ -5,6 +5,7 @@ import { translations, Language, TranslationKeys } from '../i18n/translations';
 
 export const useTranslation = () => {
 	const [lang, setLang] = useState<Language>('it');
+	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
 		const updateLang = () => {
@@ -14,11 +15,12 @@ export const useTranslation = () => {
 		};
 
 		updateLang();
+		setMounted(true);
 		window.addEventListener('languagechange', updateLang);
 		return () => window.removeEventListener('languagechange', updateLang);
 	}, []);
 
-	const t = translations[lang] as TranslationKeys;
+	const t = (mounted ? translations[lang] : translations.it) as TranslationKeys;
 
 	return { t, lang, setLang };
 };

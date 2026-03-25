@@ -14,22 +14,22 @@ export default function AboutPage() {
 				<h1 className="text-[3em] font-bold mb-[1em]">{t.about.title}</h1>
 				
 				<section className="mb-[4em]">
-					<h2 className="text-[2em] font-bold mb-[0.5em]">La nostra storia</h2>
+					<h2 className="text-[2em] font-bold mb-[0.5em]">{t.about.storyTitle || "La nostra storia"}</h2>
 					<p className="text-zinc-600 leading-relaxed">{t.about.story}</p>
 				</section>
 
 				<section className="mb-[4em]">
-					<h2 className="text-[2em] font-bold mb-[0.5em]">Storia del Parkour</h2>
+					<h2 className="text-[2em] font-bold mb-[0.5em]">{t.about.parkourStoryTitle || "Storia del Parkour"}</h2>
 					<p className="text-zinc-600 leading-relaxed">{t.about.parkourStory}</p>
 				</section>
 
 				<section className="mb-[4em]">
-					<h2 className="text-[2em] font-bold mb-[0.5em]">Perché fare Parkour?</h2>
+					<h2 className="text-[2em] font-bold mb-[0.5em]">{t.about.whyParkourTitle || "Perché fare Parkour?"}</h2>
 					<p className="text-zinc-600 leading-relaxed">{t.about.whyParkour}</p>
 				</section>
 
 				<section className="mb-[4em]">
-					<h2 className="text-[2em] font-bold mb-[0.5em]">La nostra palestra</h2>
+					<h2 className="text-[2em] font-bold mb-[0.5em]">{t.about.gymTitle || "La nostra palestra"}</h2>
 					<p className="text-zinc-600 leading-relaxed">{t.about.gym}</p>
 				</section>
 			</div>

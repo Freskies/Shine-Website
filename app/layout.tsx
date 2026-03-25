@@ -25,6 +25,7 @@ export default function RootLayout ({ children }: Readonly<{ children: React.Rea
 		<html lang="en">
 		<body
 			className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+			suppressHydrationWarning
 		>
 		{children}
 		<Analytics/>

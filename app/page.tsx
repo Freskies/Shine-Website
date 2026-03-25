@@ -3,7 +3,7 @@ import { Footer } from './components/Footer/Footer';
 import { Hero } from './components/Hero/Hero';
 import { FeaturedIn } from './components/FeaturedIn/FeaturedIn';
 import { Pricing } from './components/Pricing/Pricing';
-import { BookLesson } from './components/BookLesson/BookLesson';
+import { HomeBookLesson } from './components/HomeBookLesson/HomeBookLesson';
 import { Courses } from './components/Courses/Courses';
 import { Maintenance } from './components/Maintenance/Maintenance';
 import { IS_MAINTENANCE_MODE } from './utils/maintenance';
@@ -19,7 +19,7 @@ export default function Home () {
 			<FeaturedIn/>
 			<Courses/>
 			<Pricing/>
-			<BookLesson/>
+			<HomeBookLesson/>
 		</main>
 		<Footer/>
 	</div>;
