@@ -19,7 +19,7 @@ export const Hero = () => {
 		className="min-h-dvh flex flex-col items-center justify-center text-center px-[1em] py-[6em] relative overflow-hidden bg-black">
 		<div className="absolute inset-0 z-0">
 			<Image
-				src="/IMG_7604.webp"
+				src="/temp/IMG_7604.webp"
 				alt="Parkour Background"
 				fill
 				priority

@@ -18,7 +18,7 @@ export default function TeamDetailPage() {
 					<div className="relative w-full md:w-[20rem] h-[25rem] rounded-[2em] overflow-hidden">
 						<div className="absolute inset-0 bg-zinc-200 animate-pulse -z-10" />
 						<Image
-							src="/logo_shine_circle.avif"
+							src="/temp/logo_shine_circle.avif"
 							alt="Team Member Placeholder"
 							fill
 							className="object-cover"

@@ -66,7 +66,7 @@ export default function CourseDetailPage () {
 							<div className="flex items-center gap-[1em] mb-[1.5em]">
 								<div
 									className="w-[4em] h-[4em] bg-zinc-200 rounded-full overflow-hidden relative border-2 border-white shadow-sm">
-									<Image src="/logo_shine_circle.avif" alt={course.instructor} fill className="object-cover"/>
+         <Image src="/temp/logo_shine_circle.avif" alt={course.instructor} fill className="object-cover"/>
 								</div>
 								<div>
 									<p className="font-bold text-[1.2em]">{course.instructor}</p>

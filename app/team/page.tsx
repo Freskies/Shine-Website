@@ -25,9 +25,9 @@ export default function TeamPage() {
 						<Link href={`/team/${member.id}`} key={member.id} className="group block text-center">
 							<div className="relative w-full aspect-square rounded-[2em] overflow-hidden mb-[1.5em] shadow-sm group-hover:shadow-xl transition-all duration-300">
 								<div className="absolute inset-0 bg-zinc-200 animate-pulse -z-10" />
-								<Image
-									src="/logo_shine_circle.avif"
-									alt={member.name}
+  						<Image
+  							src="/temp/logo_shine_circle.avif"
+  							alt={member.name}
 									fill
 									className="object-cover group-hover:scale-110 transition-transform duration-500"
 								/>

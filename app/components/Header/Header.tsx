@@ -35,7 +35,7 @@ export const Header = () => {
 			      onClick={handleNavbarClick('/')}
 			      className={`flex items-center gap-[0.5em] transition-colors ${showScrolledState ? 'text-black' : 'text-white'}`}>
 				<Image
-					src="/logo_shine_circle.avif"
+					src="/temp/logo_shine_circle.avif"
 					alt="Shine Logo"
 					width={40}
 					height={40}

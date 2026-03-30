@@ -219,7 +219,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 									<div className="flex flex-col md:flex-row gap-[1.5em] items-center text-center md:text-left">
 										<div
 											className="w-[5em] h-[5em] bg-zinc-100 rounded-full overflow-hidden relative flex-shrink-0 border-2 border-white shadow-md">
-											<Image src="/logo_shine_circle.avif" alt={selectedCourse.instructor} fill
+           <Image src="/temp/logo_shine_circle.avif" alt={selectedCourse.instructor} fill
 											       className="object-cover"/>
 										</div>
 										<div>
