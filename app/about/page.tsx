@@ -1,39 +1,14 @@
 'use client';
 
-import { Header } from '@/app/components/Header/Header';
-import { Footer } from '@/app/components/Footer/Footer';
-import { useTranslation } from '@/app/hooks/useTranslation';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function AboutPage() {
-	const { t } = useTranslation();
+	const router = useRouter();
 
-	return <div className="flex flex-col min-h-screen">
-		<Header />
-		<main className="pt-[6em] pb-[4em] px-[1em]">
-			<div className="max-w-[50rem] mx-auto">
-				<h1 className="text-[3em] font-bold mb-[1em]">{t.about.title}</h1>
-				
-				<section className="mb-[4em]">
-					<h2 className="text-[2em] font-bold mb-[0.5em]">{t.about.storyTitle || "La nostra storia"}</h2>
-					<p className="text-zinc-600 leading-relaxed">{t.about.story}</p>
-				</section>
+	useEffect(() => {
+		router.replace('/about/2009');
+	}, [router]);
 
-				<section className="mb-[4em]">
-					<h2 className="text-[2em] font-bold mb-[0.5em]">{t.about.parkourStoryTitle || "Storia del Parkour"}</h2>
-					<p className="text-zinc-600 leading-relaxed">{t.about.parkourStory}</p>
-				</section>
-
-				<section className="mb-[4em]">
-					<h2 className="text-[2em] font-bold mb-[0.5em]">{t.about.whyParkourTitle || "Perché fare Parkour?"}</h2>
-					<p className="text-zinc-600 leading-relaxed">{t.about.whyParkour}</p>
-				</section>
-
-				<section className="mb-[4em]">
-					<h2 className="text-[2em] font-bold mb-[0.5em]">{t.about.gymTitle || "La nostra palestra"}</h2>
-					<p className="text-zinc-600 leading-relaxed">{t.about.gym}</p>
-				</section>
-			</div>
-		</main>
-		<Footer />
-	</div>;
+	return null;
 }
