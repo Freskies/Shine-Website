@@ -9,7 +9,7 @@ export interface CourseData {
 	ageRange: string;
 	schedule: string;
 	image: string;
-	title: string;
+	title: string | React.ReactNode;
 }
 
 export const CourseCard = ({ course }: { course: CourseData }) => {
@@ -22,7 +22,7 @@ export const CourseCard = ({ course }: { course: CourseData }) => {
 			<div className="absolute inset-0 bg-zinc-200 animate-pulse -z-10"/>
 			<Image
 				src={course.image}
-				alt={course.title}
+				alt={typeof course.title === 'string' ? course.title : course.id}
 				fill
 				className="object-cover group-hover:scale-110 transition-transform duration-500"
 			/>

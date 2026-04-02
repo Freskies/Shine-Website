@@ -8,13 +8,21 @@ import { Underline } from '../ui/Underline/Underline';
 export const Courses = () => {
 	const { t } = useTranslation();
 
-	const courses = coursesData.map(course => ({
-		id: course.id,
-		title: `${t.courses[course.titleKey as keyof typeof t.courses]} ${course.ageRange}`,
-		ageRange: course.ageRange,
-		schedule: `${course.daysKeys.map(day => t.courses.days[day as keyof typeof t.courses.days]).join('/')} ${course.time}`,
-		image: course.bannerImage
-	}));
+	const courses = coursesData.map(course => {
+		const title = t.courses[course.titleKey as keyof typeof t.courses] as string;
+		const ageRange = course.ageRange;
+		return {
+			id: course.id,
+			title: <span className="block leading-tight">
+				<span className="whitespace-nowrap">{title}</span>
+				{' '}
+				<span className="whitespace-nowrap">{ageRange}</span>
+			</span>,
+			ageRange: course.ageRange,
+			schedule: `${course.daysKeys.map(day => t.courses.days[day as keyof typeof t.courses.days]).join('/')} ${course.time}`,
+			image: course.bannerImage
+		};
+	});
 
 	return (
 		<section id="courses" className="py-[6em] bg-second/5 overflow-hidden relative">

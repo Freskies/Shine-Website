@@ -3,6 +3,7 @@
 import { useTranslation } from '@/app/hooks/useTranslation';
 import React from "react";
 import Image from "next/image";
+import { ChevronDownOutline } from 'react-ionicons'
 
 export const Hero = () => {
 	const { t } = useTranslation();
@@ -10,9 +11,7 @@ export const Hero = () => {
 	const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
 		e.preventDefault();
 		const element = document.getElementById('courses');
-		if (element) {
-			element.scrollIntoView({ behavior: 'smooth' });
-		}
+		if (element) element.scrollIntoView({ behavior: 'smooth' });
 	};
 
 	return <section
@@ -46,18 +45,7 @@ export const Hero = () => {
 		   onClick={handleScroll}
 		   className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 text-accent hover:opacity-70 transition-opacity animate-bounce"
 		   aria-label="Scroll to courses">
-			<svg
-				width="32"
-				height="32"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				strokeWidth="2"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			>
-				<path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-			</svg>
+			<ChevronDownOutline color={'currentColor'} height="32px" width="32px" />
 		</a>
 	</section>;
 };
