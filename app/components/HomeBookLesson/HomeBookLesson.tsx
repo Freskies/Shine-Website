@@ -6,7 +6,7 @@ import { coursesData, CourseInfo } from '@/app/data/courses';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Underline } from '../ui/Underline/Underline';
 import { useRouter } from 'next/navigation';
-import { CloseOutline } from 'react-ionicons'
+import { IoCloseOutline } from 'react-icons/io5'
 
 export const HomeBookLesson = () => {
 	const { t } = useTranslation();
@@ -25,13 +25,11 @@ export const HomeBookLesson = () => {
 	};
 
 	return (
-		<section id="book-lesson-home" className="py-[6em] px-[1em] bg-zinc-50">
+		<section id="book-lesson-home" className="py-[6em] px-[1em] bg-bg-color">
 			<div className="max-w-200 mx-auto">
-				<div className="text-center mb-[4em]">
-					<h2 className="text-[2.5em] font-bold mb-[0.5em] leading-tight">{t.bookLesson.title}</h2>
-					<div className="flex justify-center relative">
-						<Underline/>
-					</div>
+				<div className="relative mb-[3em] text-center">
+					<h2 className="text-[3em] font-bold leading-tight">{t.bookLesson.title}</h2>
+					<Underline/>
 				</div>
 
 				<div className="grid gap-[2em] mb-[4em]">
@@ -79,7 +77,7 @@ export const HomeBookLesson = () => {
 								onClick={() => setIsModalOpen(false)}
 								className="absolute top-[1.5em] right-[1.5em] text-zinc-400 hover:text-zinc-800 transition-colors"
 							>
-								<CloseOutline color={'currentColor'} height="24px" width="24px" />
+								<IoCloseOutline size="24px" />
 							</button>
 
 							<h3 className="text-[2em] font-bold mb-[1.5em] text-center">{t.bookLesson.modalTitle}</h3>

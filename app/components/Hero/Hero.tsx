@@ -3,7 +3,7 @@
 import { useTranslation } from '@/app/hooks/useTranslation';
 import React from "react";
 import Image from "next/image";
-import { ChevronDownOutline } from 'react-ionicons'
+import { IoChevronDownOutline } from 'react-icons/io5'
 
 export const Hero = () => {
 	const { t } = useTranslation();
@@ -24,7 +24,7 @@ export const Hero = () => {
 				priority
 				className="object-cover opacity-25"
 			/>
-			<div className="absolute inset-x-0 bottom-0 h-[30%] bg-linear-to-t from-zinc-50 to-transparent"/>
+			<div className="absolute inset-x-0 bottom-0 h-[40%] bg-linear-to-t from-bg-color from-0% via-bg-color/25 to-transparent to-100%"/>
 		</div>
 		<div className="max-w-240 relative z-10 text-white">
 			<h1
@@ -45,7 +45,7 @@ export const Hero = () => {
 		   onClick={handleScroll}
 		   className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 text-accent hover:opacity-70 transition-opacity animate-bounce"
 		   aria-label="Scroll to courses">
-			<ChevronDownOutline color={'currentColor'} height="32px" width="32px" />
+			<IoChevronDownOutline size="32px" />
 		</a>
 	</section>;
 };

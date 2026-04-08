@@ -25,7 +25,7 @@ export const Courses = () => {
 	});
 
 	return (
-		<section id="courses" className="py-[6em] bg-second/5 overflow-hidden relative">
+		<section id="courses" className="py-[6em] bg-bg-color overflow-hidden relative">
 			<div className="max-w-7xl mx-auto px-[1em] relative z-10">
 				<div className="relative mb-[3em] text-center">
 					<h2 className="text-[3em] font-bold">{t.courses.title}</h2>

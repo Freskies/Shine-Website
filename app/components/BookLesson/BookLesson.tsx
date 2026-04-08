@@ -7,7 +7,7 @@ import { instructors } from '@/app/data/instructors';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Underline } from '../ui/Underline/Underline';
 import Image from 'next/image';
-import { DocumentTextOutline, CalendarOutline, CloseOutline, LogoWhatsapp } from 'react-ionicons'
+import { IoDocumentTextOutline, IoCalendarOutline, IoCloseOutline, IoLogoWhatsapp } from 'react-icons/io5'
 
 export const BookLesson = ({ courseName }: { courseName?: string }) => {
 	const { t } = useTranslation();
@@ -30,7 +30,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 					download
 					className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 px-4 py-2 rounded-lg transition-colors mt-2 font-semibold"
 				>
-					<DocumentTextOutline color={'currentColor'} height="20px" width="20px" />
+					<IoDocumentTextOutline size="20px"/>
 					{t.bookLesson.downloadPdf}
 				</a>
 			)
@@ -66,7 +66,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 
 	return (
 		<section id="book-lesson" className="py-[6em] px-[1em] bg-zinc-50">
-			<div className="max-w-[50rem] mx-auto">
+			<div className="max-w-200 mx-auto">
 				<div className="text-center mb-[2em]">
 					<h2 className="text-[2.5em] font-bold mb-[0.5em] leading-tight">{t.bookLesson.title}</h2>
 				</div>
@@ -140,7 +140,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 							>
 								<p className="text-zinc-500 italic mb-4">Coming Soon - Online Booking</p>
 								<div className="flex justify-center">
-									<CalendarOutline color={'#e5e7eb'} height="48px" width="48px" />
+									<IoCalendarOutline color={'#e5e7eb'} size="48px"/>
 								</div>
 							</motion.div>
 						)}
@@ -159,7 +159,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 
 			<AnimatePresence>
 				{isModalOpen && (
-					<div className="fixed inset-0 z-[100] flex items-center justify-center p-[1em]">
+					<div className="fixed inset-0 z-100 flex items-center justify-center p-[1em]">
 						<motion.div
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
@@ -171,13 +171,13 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 							initial={{ opacity: 0, scale: 0.9, y: 20 }}
 							animate={{ opacity: 1, scale: 1, y: 0 }}
 							exit={{ opacity: 0, scale: 0.9, y: 20 }}
-							className="bg-white w-full max-w-[40rem] rounded-[2.5em] p-[2em] relative z-10 max-h-[90vh] overflow-y-auto"
+							className="bg-white w-full max-w-160 rounded-[2.5em] p-[2em] relative z-10 max-h-[90vh] overflow-y-auto"
 						>
 							<button
 								onClick={() => setIsModalOpen(false)}
 								className="absolute top-[1.5em] right-[1.5em] text-zinc-400 hover:text-zinc-800 transition-colors"
 							>
-								<CloseOutline color={'currentColor'} height="24px" width="24px" />
+								<IoCloseOutline size="24px" />
 							</button>
 
 							<h3 className="text-[2em] font-bold mb-[1.5em] text-center">{t.bookLesson.modalTitle}</h3>
@@ -214,7 +214,8 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 									<div className="flex flex-col md:flex-row gap-[1.5em] items-center text-center md:text-left">
 										<div
 											className="w-[5em] h-[5em] bg-zinc-100 rounded-full overflow-hidden relative flex-shrink-0 border-2 border-white shadow-md">
-           <Image src="/temp/logo_shine_circle.avif" alt={selectedCourse.instructor} fill
+											<Image src="/temp/logo_shine_circle.avif" alt={selectedCourse.instructor} fill
+											       sizes="80px"
 											       className="object-cover"/>
 										</div>
 										<div>
@@ -234,7 +235,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 											rel="noopener noreferrer"
 											className="flex items-center justify-center gap-[0.5em] w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-[1.2em] rounded-full font-bold transition-all shadow-md"
 										>
-											<LogoWhatsapp color={'white'} height="20px" width="20px" />
+											<IoLogoWhatsapp color={'white'} size="20px"/>
 											{t.bookLesson.whatsappContact}
 										</a>
 									</div>

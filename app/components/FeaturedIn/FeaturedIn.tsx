@@ -14,8 +14,9 @@ export const FeaturedIn = () => {
 	];
 
 	// noinspection LongLine
-	return <section className="py-[3em] bg-zinc-50 overflow-hidden relative">
-		<div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-white to-transparent pointer-events-none"/>
+	return <section className="py-[3em] bg-bg-color overflow-hidden relative">
+		<div
+			className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-bg-color to-transparent pointer-events-none"/>
 		<div className="max-w-7xl mx-auto px-[1em] relative z-10">
 			<div className="flex justify-center items-center gap-[2em] sm:gap-[4em]">
 				{logos.map((logo) => (
@@ -29,9 +30,9 @@ export const FeaturedIn = () => {
 						<Image
 							src={logo.src}
 							alt={logo.alt}
-							width={120}
-							height={60}
-							className="w-full h-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+							width={100}
+							height={100}
+							className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300 w-full h-auto"
 						/>
 					</a>
 				))}

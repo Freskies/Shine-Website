@@ -10,7 +10,7 @@ import { BookLesson } from '@/app/components/BookLesson/BookLesson';
 import { useTranslation } from '@/app/hooks/useTranslation';
 import { coursesData } from '@/app/data/courses';
 import { instructors } from '@/app/data/instructors';
-import { LogoWhatsapp } from 'react-ionicons'
+import { IoLogoWhatsapp } from 'react-icons/io5'
 
 export default function CourseDetailPage () {
 	const { id } = useParams();
@@ -73,7 +73,7 @@ export default function CourseDetailPage () {
 							<div className="flex items-center gap-[1em] mb-[1.5em]">
 								<div
 									className="w-[4em] h-[4em] bg-zinc-200 rounded-full overflow-hidden relative border-2 border-white shadow-sm">
-         <Image src="/temp/logo_shine_circle.avif" alt={course.instructor} fill className="object-cover"/>
+         <Image src="/temp/logo_shine_circle.avif" alt={course.instructor} fill sizes="64px" className="object-cover"/>
 								</div>
 								<div>
 									<p className="font-bold text-[1.2em]">{course.instructor}</p>
@@ -90,7 +90,7 @@ export default function CourseDetailPage () {
 								rel="noopener noreferrer"
 								className="flex items-center justify-center gap-[0.5em] w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-[1em] rounded-xl font-bold transition-all shadow-sm"
 							>
-								<LogoWhatsapp color={'white'} height="20px" width="20px" />
+								<IoLogoWhatsapp color={'white'} size="20px" />
 								{t.bookLesson.whatsappContact}
 							</a>
 						</div>

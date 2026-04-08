@@ -24,12 +24,13 @@ export const CourseCard = ({ course }: { course: CourseData }) => {
 				src={course.image}
 				alt={typeof course.title === 'string' ? course.title : course.id}
 				fill
+				sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
 				className="object-cover group-hover:scale-110 transition-transform duration-500"
 			/>
-			<div
-				className="absolute top-[1em] right-[1em] bg-second/80 backdrop-blur-md text-white px-[1em] py-[0.5em] rounded-full text-[0.8em] font-bold">
-				{t.courses.ageRange}: {course.ageRange}
-			</div>
+			{/*<div*/}
+			{/*	className="absolute top-[1em] right-[1em] bg-accent/80 backdrop-blur-md text-white px-[1em] py-[0.5em] rounded-full text-[0.8em] font-bold">*/}
+			{/*	{t.courses.ageRange}: {course.ageRange}*/}
+			{/*</div>*/}
 		</figure>
 		<figcaption className="p-[1.5em]">
 			<h3 className="text-[1.3em] font-bold mb-[0.5em] group-hover:text-accent transition-colors">{course.title}</h3>

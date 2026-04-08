@@ -7,8 +7,7 @@
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--color-accent: #763E3F;
-	--color-second: #b0a990;
-	--color-second-light: #f5f4f0;
+	--color-bg-color: #fbfbf9;
 	--color-black: #000000;
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
@@ -18,7 +17,6 @@
 	--background: #ffffff;
 	--foreground: #000000;
 	--accent: #763E3F;
-	--second: #b0a990;
 }
 
 @media (prefers-color-scheme: dark) {
