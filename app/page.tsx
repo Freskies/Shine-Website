@@ -11,12 +11,9 @@ import { Maintenance } from './components/Maintenance/Maintenance';
 import { IS_MAINTENANCE_MODE } from './utils/maintenance';
 
 export default function Home () {
-	if (IS_MAINTENANCE_MODE)
-		return <Maintenance/>;
-
 	return <div className="flex flex-col min-h-screen">
 		<Header/>
-		<main className="pb-[4em]">
+		<main>
 			<Hero/>
 			<FeaturedIn/>
 			<Courses/>

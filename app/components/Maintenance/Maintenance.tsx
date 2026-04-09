@@ -5,7 +5,7 @@ import { useTranslation } from '@/app/hooks/useTranslation';
 export const Maintenance = () => {
 	const { t } = useTranslation();
 
-	return <div className="flex flex-col items-center justify-center min-h-screen px-4 py-16 text-center bg-white">
+	return <div className="flex flex-col items-center justify-center px-4 py-16 text-center bg-white">
 		<div className="max-w-md w-full">
 			<h1 className="text-4xl font-bold mb-6 text-zinc-900">{t.maintenance.title}</h1>
 			<p className="text-lg text-zinc-600 mb-8 leading-relaxed">

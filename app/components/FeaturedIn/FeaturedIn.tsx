@@ -14,7 +14,7 @@ export const FeaturedIn = () => {
 	];
 
 	// noinspection LongLine
-	return <section className="py-[3em] bg-bg-color overflow-hidden relative">
+	return <section className="py-6em bg-bg-color overflow-hidden relative">
 		<div
 			className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-bg-color to-transparent pointer-events-none"/>
 		<div className="max-w-7xl mx-auto px-[1em] relative z-10">

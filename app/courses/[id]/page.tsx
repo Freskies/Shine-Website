@@ -18,9 +18,6 @@ export default function CourseDetailPage () {
 
 	const course = coursesData.find(c => c.id === id);
 
-	if (IS_MAINTENANCE_MODE)
-		return <Maintenance/>;
-
 	if (!course) {
 		return <div className="flex flex-col min-h-screen">
 			<Header/>
@@ -35,10 +32,11 @@ export default function CourseDetailPage () {
 	}
 
 	const title = t.courses[course.titleKey as keyof typeof t.courses] as string;
-	const ageRange = course.ageRange;
+	const ageRange = `${course.ageRange} ${t.courses.years}`;
 	const fullTitle = `${title} ${ageRange}`;
 	const schedule = `${course.daysKeys.map(day => t.courses.days[day as keyof typeof t.courses.days] as string).join('/')} ${course.time}`;
 	const instructorInfo = instructors[course.instructor];
+	const instructorTranslation = (t.courses.instructors as any)?.[course.instructor];
 	const whatsappUrl = instructorInfo
 		? `https://wa.me/${instructorInfo.phone.replace(/\s+/g, '')}?text=${encodeURIComponent(`${t.bookLesson.whatsappMsg} ${fullTitle}`)}`
 		: '#';
@@ -47,9 +45,9 @@ export default function CourseDetailPage () {
 		<Header/>
 		<main className="pt-header-height">
 			<div className="max-w-240 mx-auto px-[1em] mb-[4em]">
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-[4em] items-start">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-[1em] md:gap-[4em] items-start">
 					<div
-						className="flex flex-col h-full p-[2em] rounded-[2em] max-w-160">
+						className="flex flex-col p-[2em] rounded-[2em] max-w-160">
 						<h1 className="text-[3.5em] font-bold mb-[0.5em] leading-tight">
 							<span className="whitespace-nowrap">{title}</span>
 							{' '}
@@ -61,14 +59,14 @@ export default function CourseDetailPage () {
 								{t.courses.descriptions[course.descriptionKey as keyof typeof t.courses.descriptions]}
 							</p>
 						</div>
-						<div className="mb-[2em]">
+						<div>
 							<h2 className="text-[1.5em] font-bold mb-[1em]">{t.courses.schedule}</h2>
 							<p className="text-zinc-600">{schedule}</p>
 						</div>
 					</div>
 					<div className="flex flex-col gap-[2em]">
 						<div
-							className="bg-zinc-50 p-[2em] rounded-[2em] border border-zinc-100 flex flex-col mt-6">
+							className="bg-zinc-50 p-[2em] rounded-[2em] border border-zinc-100 flex flex-col md:mt-6">
 							<h2 className="text-[1.5em] font-bold mb-[1em]">{t.courses.coach}</h2>
 							<div className="flex items-center gap-[1em] mb-[1.5em]">
 								<div
@@ -77,11 +75,11 @@ export default function CourseDetailPage () {
 								</div>
 								<div>
 									<p className="font-bold text-[1.2em]">{course.instructor}</p>
-									<p className="text-zinc-500 text-[0.9em]">{t.courses.leadInstructor}</p>
+									<p className="text-zinc-500 text-[0.9em]">{instructorTranslation?.description || t.courses.leadInstructor}</p>
 								</div>
 							</div>
 							<p className="text-zinc-600 text-[0.9em] mb-[1.5em] flex-grow">
-								Coach {course.instructor} {t.about.story.split('...')[0] === 'La nostra storia' ? 'è un esperto praticante di parkour.' : 'is an experienced parkour practitioner.'}
+								{instructorTranslation?.extendedDescription || (t.about.story.split('...')[0] === 'La nostra storia' ? `Coach ${course.instructor} è un esperto praticante di parkour.` : `Coach ${course.instructor} is an experienced parkour practitioner.`)}
 							</p>
 
 							<a

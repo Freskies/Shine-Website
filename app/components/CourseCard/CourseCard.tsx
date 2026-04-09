@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from '@/app/hooks/useTranslation';
+import React from "react";
 
 export interface CourseData {
 	id: string;

@@ -19,16 +19,17 @@ export const en = {
 		notFound: "Course not found",
 		notFoundDescription: "The requested course does not exist.",
 		cta: "Learn more",
+		years: "Years",
 		kids: "Kids",
 		teens: "Teens",
 		adults: "Adults",
 		descriptions: {
-			'kids-4-7': "Course dedicated to the little ones to discover movement through play and parkour.",
-			'kids-8-9': "Course dedicated to the little ones to discover movement through play and parkour.",
-			'teen-10-11': "Development of technical and physical parkour skills in a dynamic and safe environment.",
-			'teen-12-13': "Development of technical and physical parkour skills in a dynamic and safe environment.",
-			'teen-14-16': "Development of technical and physical parkour skills in a dynamic and safe environment.",
-			'adults-16-plus': "Complete training for adults, focused on strength, agility, and overcoming obstacles.",
+			'kids-4-7': "Exploration, play, and discovery of movement. Children learn to understand the potential of their bodies and move with awareness in space, acquiring the foundations for managing the surrounding environment safely and independently.",
+			'kids-8-9': "An experience focused on proprioception and motor control. Through dynamic movement, participants discover how to manage their bodies in various contexts, learning to assess risks and move with competence.",
+			'teen-10-11': "Technical development and precision of movement. The course aims to refine the control of physical skills, teaching students to approach obstacles with correct technique and conscious management of environmental risk.",
+			'teen-12-13': "Targeted technical training to develop precision and control. Students will develop the necessary skills to face physical challenges with technical competence and a steady head on their shoulders.",
+			'teen-14-16': "Advanced technique, problem solving, and overcoming personal limits. In addition to motor control, we focus on managing fears and analyzing challenges, providing the tools to move effectively and safely in every situation.",
+			'adults-16-plus': "Mastering movement through technical precision and psychophysical control. Training to overcome personal limits, face environmental challenges, and manage stress in overcoming obstacles.",
 		},
 		days: {
 			mon: "Mon",
@@ -39,6 +40,64 @@ export const en = {
 			sat: "Sat",
 			sun: "Sun",
 		},
+		instructors: {
+			"Giacchini Valerio": {
+				description: "UISP Certified",
+				extendedDescription: "Valerio is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Spadoni Alex": {
+				description: "ADAPT Certified",
+				extendedDescription: "Alex is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Mohanu Alexandru Toma": {
+				description: "ADAPT 3 Certified",
+				extendedDescription: "Alexandru is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Lopez Alberto": {
+				description: "ADAPT Certified",
+				extendedDescription: "Alberto is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Fogli Giacomo": {
+				description: "ADAPT Certified",
+				extendedDescription: "Giacomo is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"De Luca Francesco": {
+				description: "UDB Certified",
+				extendedDescription: "Francesco is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Pezzi Lorenzo": {
+				description: "UDB Certified",
+				extendedDescription: "Lorenzo is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Cicchi Sara": {
+				description: "UDB Certified",
+				extendedDescription: "Sara is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Bona Michela": {
+				description: "UDB Certified",
+				extendedDescription: "Michela is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Libranti Federico": {
+				description: "Instructor",
+				extendedDescription: "Federico is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Mazzotti Fabio": {
+				description: "UISP Certified",
+				extendedDescription: "Fabio is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Allegri Elena": {
+				description: "UDB Certified",
+				extendedDescription: "Elena is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Mingozzi Filippo": {
+				description: "UDB Certified",
+				extendedDescription: "Filippo is an experienced parkour practitioner with years of teaching and field experience."
+			},
+			"Massalin Matteo": {
+				description: "UDB Certified",
+				extendedDescription: "Matteo is an experienced parkour practitioner with years of teaching and field experience."
+			},
+		}
 	},
 	pricing: {
 		title: "Pricing",
@@ -61,9 +120,11 @@ export const en = {
 		title: "Book a free trial lesson",
 		cta: "Book now",
 		step1: "Fill out the registration form",
-		downloadPdf: "Download PDF",
-		step2: "Email the completed form and a valid medical certificate",
-		step3: "Message the instructor on WhatsApp for your trial lesson",
+		downloadPdf: "Download Form",
+		downloadRequest: "Download Request",
+		step2: "Obtain a valid medical certificate (children under 6 years old do not need a certificate)",
+		step3: "Email both the registration form and the medical certificate",
+		step4: "Message the instructor on WhatsApp for your trial lesson",
 		modalTitle: "Choose a course",
 		selectCourse: "Select course",
 		whatsappMsg: "Hi! I would like to book a trial lesson for the course",
@@ -117,8 +178,8 @@ export const en = {
 		title: "Spot Map",
 	},
 	maintenance: {
-		title: "Website Under Development",
-		description: "We're sorry, but the Shine website is currently under development. We are working hard to bring you the best experience soon!",
+		title: "Section under maintenance",
+		description: "Sorry, we are working on this section and it will be out as soon as possible!",
 		contact: "NEED MORE INFORMATION?",
 	},
 };

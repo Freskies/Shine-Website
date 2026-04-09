@@ -20,13 +20,26 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 		}) || null) : null
 	);
 
+	const handleCourseSelect = (course: CourseInfo) => {
+		setSelectedCourse(course);
+	};
+
+	const instructor = selectedCourse ? instructors[selectedCourse.instructor] : null;
+	const selectedCourseTitle = selectedCourse ? `${t.courses[selectedCourse.titleKey as keyof typeof t.courses] as string} ${selectedCourse.ageRange} ${t.courses.years}` : '';
+
+	const defaultWhatsappNumber = "393452288118"; // Numero di default per Shine Parkour se non c'è corso selezionato
+
+	const whatsappUrl = selectedCourse && instructor
+		? `https://wa.me/${instructor.phone.replace(/\s+/g, '')}?text=${encodeURIComponent(`${t.bookLesson.whatsappMsg} ${selectedCourseTitle}`)}`
+		: `https://wa.me/${defaultWhatsappNumber}?text=${encodeURIComponent(t.bookLesson.whatsappMsg)}`;
+
 	const steps = [
 		{
 			id: 1,
 			text: t.bookLesson.step1,
 			action: (
 				<a
-					href="/tesseramento.pdf"
+					href="/documents/Tesseramento%20Shine%202025-2026.pdf"
 					download
 					className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 px-4 py-2 rounded-lg transition-colors mt-2 font-semibold"
 				>
@@ -40,29 +53,43 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 			text: t.bookLesson.step2,
 			action: (
 				<a
-					href="mailto:info@shineparkour.it"
-					className="text-accent hover:underline mt-1 inline-block font-medium"
+					href="/documents/Richiesta%20certificato%20medico%202025-2026.pdf"
+					download
+					className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 px-4 py-2 rounded-lg transition-colors mt-2 font-semibold"
 				>
-					info@shineparkour.it
+					<IoDocumentTextOutline size="20px"/>
+					{t.bookLesson.downloadRequest}
 				</a>
 			)
 		},
 		{
 			id: 3,
 			text: t.bookLesson.step3,
+			action: (
+				<a
+					href={`mailto:${t.footer.email}`}
+					className="text-accent hover:underline mt-1 inline-block font-medium"
+				>
+					{t.footer.email}
+				</a>
+			)
+		},
+		{
+			id: 4,
+			text: t.bookLesson.step4,
+			action: (
+				<a
+					href={whatsappUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 px-4 py-2 rounded-lg transition-colors mt-2 font-semibold"
+				>
+					<IoLogoWhatsapp size="20px"/>
+					{t.bookLesson.whatsappContact}
+				</a>
+			)
 		}
 	];
-
-	const handleCourseSelect = (course: CourseInfo) => {
-		setSelectedCourse(course);
-	};
-
-	const instructor = selectedCourse ? instructors[selectedCourse.instructor] : null;
-	const selectedCourseTitle = selectedCourse ? `${t.courses[selectedCourse.titleKey as keyof typeof t.courses] as string} ${selectedCourse.ageRange}` : '';
-
-	const whatsappUrl = selectedCourse && instructor
-		? `https://wa.me/${instructor.phone.replace(/\s+/g, '')}?text=${encodeURIComponent(`${t.bookLesson.whatsappMsg} ${selectedCourseTitle}`)}`
-		: '#';
 
 	return (
 		<section id="book-lesson" className="py-[6em] px-[1em] bg-zinc-50">
@@ -147,12 +174,6 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 					</AnimatePresence>
 
 					<div className="text-center">
-						<button
-							onClick={() => setIsModalOpen(true)}
-							className="inline-block bg-accent hover:bg-accent/90 text-white px-[3em] py-[1.2em] rounded-full font-bold transition-all transform hover:scale-105 shadow-lg"
-						>
-							{t.bookLesson.cta}
-						</button>
 					</div>
 				</div>
 			</div>
@@ -177,7 +198,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 								onClick={() => setIsModalOpen(false)}
 								className="absolute top-[1.5em] right-[1.5em] text-zinc-400 hover:text-zinc-800 transition-colors"
 							>
-								<IoCloseOutline size="24px" />
+								<IoCloseOutline size="24px"/>
 							</button>
 
 							<h3 className="text-[2em] font-bold mb-[1.5em] text-center">{t.bookLesson.modalTitle}</h3>
@@ -233,9 +254,9 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 											href={whatsappUrl}
 											target="_blank"
 											rel="noopener noreferrer"
-											className="flex items-center justify-center gap-[0.5em] w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-[1.2em] rounded-full font-bold transition-all shadow-md"
+											className="flex items-center justify-center gap-[0.5em] w-full bg-zinc-200 hover:bg-zinc-300 text-zinc-800 py-[1.2em] rounded-full font-bold transition-all shadow-md"
 										>
-											<IoLogoWhatsapp color={'white'} size="20px"/>
+											<IoLogoWhatsapp size="20px"/>
 											{t.bookLesson.whatsappContact}
 										</a>
 									</div>

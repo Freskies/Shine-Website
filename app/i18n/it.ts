@@ -19,16 +19,17 @@ export const it = {
 		notFound: "Corso non trovato",
 		notFoundDescription: "Il corso richiesto non esiste.",
 		cta: "Scopri di più",
+		years: "Anni",
 		kids: "Bambini",
 		teens: "Ragazzi",
 		adults: "Adulti",
 		descriptions: {
-			'kids-4-7': "Corso dedicato ai più piccoli per scoprire il movimento attraverso il gioco e il parkour.",
-			'kids-8-9': "Corso dedicato ai più piccoli per scoprire il movimento attraverso il gioco e il parkour.",
-			'teen-10-11': "Sviluppo delle abilità tecniche e fisiche del parkour in un ambiente dinamico e sicuro.",
-			'teen-12-13': "Sviluppo delle abilità tecniche e fisiche del parkour in un ambiente dinamico e sicuro.",
-			'teen-14-16': "Sviluppo delle abilità tecniche e fisiche del parkour in un ambiente dinamico e sicuro.",
-			'adults-16-plus': "Allenamento completo per adulti, focalizzato su forza, agilità e superamento degli ostacoli.",
+			'kids-4-7': "Esplorazione, gioco e scoperta del movimento. I bambini imparano a conoscere le potenzialità del proprio corpo e a muoversi con consapevolezza nello spazio, acquisendo le basi per gestire l'ambiente circostante in modo sicuro e autonomo.",
+			'kids-8-9': "Un'esperienza focalizzata sulla propriocezione e sul controllo motorio. Attraverso il movimento dinamico, i partecipanti scoprono come gestire il proprio corpo in diversi contesti, imparando a valutare i rischi e a muoversi con competenza.",
+			'teen-10-11': "Sviluppo tecnico e precisione del movimento. Il corso mira a perfezionare il controllo delle proprie abilità fisiche, insegnando ad approcciare gli ostacoli con tecnica corretta e una gestione consapevole del rischio ambientale.",
+			'teen-12-13': "Allenamento tecnico mirato per sviluppare precisione e del controllo. I ragazzi svilupperanno le capacità necessarie per affrontare sfide fisiche con competenza tecnica e testa sulle spalle.",
+			'teen-14-16': "Tecnica avanzata, problem solving e superamento dei propri limiti. Oltre al controllo motorio, ci concentriamo sulla gestione delle paure e sull'analisi delle sfide, fornendo gli strumenti per muoversi con efficacia e sicurezza in ogni situazione.",
+			'adults-16-plus': "Padroneggiare il movimento attraverso la precisione tecnica e il controllo psicofisico. Un allenamento per superare i propri limiti, affrontare le sfide dell'ambiente e gestire lo stress nel superamento degli ostacoli.",
 		},
 		days: {
 			mon: "Lun",
@@ -39,6 +40,64 @@ export const it = {
 			sat: "Sab",
 			sun: "Dom",
 		},
+		instructors: {
+			"Giacchini Valerio": {
+				description: "Certificato UISP",
+				extendedDescription: "Valerio è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Spadoni Alex": {
+				description: "Certificato ADAPT",
+				extendedDescription: "Alex è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Mohanu Alexandru Toma": {
+				description: "Certificato ADAPT 3",
+				extendedDescription: "Alexandru è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Lopez Alberto": {
+				description: "Certificato ADAPT",
+				extendedDescription: "Alberto è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Fogli Giacomo": {
+				description: "Certificato ADAPT",
+				extendedDescription: "Giacomo è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"De Luca Francesco": {
+				description: "Certificato UDB",
+				extendedDescription: "Francesco è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Pezzi Lorenzo": {
+				description: "Certificato UDB",
+				extendedDescription: "Lorenzo è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Cicchi Sara": {
+				description: "Certificato UDB",
+				extendedDescription: "Sara è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Bona Michela": {
+				description: "Certificato UDB",
+				extendedDescription: "Michela è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Libranti Federico": {
+				description: "Istruttore",
+				extendedDescription: "Federico è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Mazzotti Fabio": {
+				description: "Certificato UISP",
+				extendedDescription: "Fabio è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Allegri Elena": {
+				description: "Certificato UDB",
+				extendedDescription: "Elena è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Mingozzi Filippo": {
+				description: "Certificato UDB",
+				extendedDescription: "Filippo è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+			"Massalin Matteo": {
+				description: "Certificato UDB",
+				extendedDescription: "Matteo è un esperto praticante di parkour con anni di esperienza nell'insegnamento e nella pratica sul campo."
+			},
+		}
 	},
 	pricing: {
 		title: "Prezzi",
@@ -61,9 +120,11 @@ export const it = {
 		title: "Prenota una lezione di prova gratuita",
 		cta: "Prenota ora",
 		step1: "Compila il modulo di tesseramento",
-		downloadPdf: "Scarica PDF",
-		step2: "Manda per mail il modulo compilato e il certificato medico in corso di validità",
-		step3: "Scrivi all'insegnante su WhatsApp per fare la lezione di prova",
+		downloadPdf: "Scarica Modulo",
+		downloadRequest: "Scarica Richiesta",
+		step2: "Procurati il certificato medico in corso di validità (per i bambini sotto i 6 anni non serve il certificato)",
+		step3: "Manda per mail il modulo di tesseramento e il certificato medico",
+		step4: "Scrivi all'insegnante su WhatsApp per fare la lezione di prova",
 		modalTitle: "Scegli un corso",
 		selectCourse: "Seleziona corso",
 		whatsappMsg: "Ciao! Vorrei prenotare una lezione di prova per il corso",
@@ -117,8 +178,8 @@ export const it = {
 		title: "Mappa degli Spot",
 	},
 	maintenance: {
-		title: "Sito in Sviluppo",
-		description: "Ci scusiamo, il sito di Shine è attualmente in fase di sviluppo. Stiamo lavorando sodo per offrirti la migliore esperienza al più presto!",
+		title: "Sezione in manutenzione",
+		description: "Ci scusiamo, stiamo lavorando a questa sezione del sito e uscirà il prima possibile!",
 		contact: "HAI BISOGNO DI INFORMAZIONI?",
 	},
 };

@@ -6,7 +6,7 @@ import { Underline } from '../ui/Underline/Underline';
 export const Pricing = () => {
 	const { t } = useTranslation();
 
-	return <section data-scroll-target="pricing" className="py-[6em] px-[1em] bg-bg-color">
+	return <section data-scroll-target="pricing" className="py-6em px-[1em] bg-bg-color">
 		<div className="max-w-180 mx-auto">
 			<div className="relative mb-[3em] text-center">
 				<h2 className="text-[3em] font-bold">{t.pricing.title}</h2>

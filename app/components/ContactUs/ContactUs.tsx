@@ -8,7 +8,7 @@ export const ContactUs = () => {
 	const { t } = useTranslation();
 
 	return (
-		<section id="contact" className="pb-[6em] px-[1em] bg-bg-color">
+		<section id="contact" className="pt-6em pb-10em px-[1em] bg-bg-color">
 			<div className="max-w-4xl mx-auto text-center">
 				<div className="relative mb-[3em]">
 					<h2 className="text-[3em] font-bold">{t.contact.title}</h2>

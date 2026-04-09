@@ -44,7 +44,7 @@ export const FAQ = () => {
 	const toggle = (idx: number) => setOpenIndex(prev => (prev === idx ? null : idx));
 
 	return (
-		<section id="faq" className="py-[6em] px-[1em] bg-bg-color">
+		<section id="faq" className="py-6em px-[1em] bg-bg-color">
 			<div className="max-w-4xl mx-auto">
 				<div className="relative mb-[3em] text-center">
 					<h2 className="text-[3em] font-bold leading-tight">{t.faq.title}</h2>

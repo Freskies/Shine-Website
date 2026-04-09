@@ -5,7 +5,7 @@ export interface CourseInfo {
 	ageRange: string;
 	daysKeys: string[]; // Translation keys: mon, tue, etc.
 	time: string;
-	instructor: string; // Key in instructors record
+	instructor: string; // Key in instructor record
 	bannerImage: string;
 }
 
@@ -18,7 +18,7 @@ export const coursesData: CourseInfo[] = [
 		daysKeys: ['wed', 'fri'],
 		time: '18:00-19:00',
 		instructor: 'Libranti Federico',
-		bannerImage: '/courses_banners/banner_4-7.avif'
+		bannerImage: '/courses_banners/banner_4_7.webp'
 	},
 	{
 		id: 'kids-8-9',
@@ -28,7 +28,7 @@ export const coursesData: CourseInfo[] = [
 		daysKeys: ['tue', 'thu'],
 		time: '17:00-18:30',
 		instructor: 'Fogli Giacomo',
-		bannerImage: '/courses_banners/banner_8-9.avif'
+		bannerImage: '/courses_banners/banner_8_9.webp'
 	},
 	{
 		id: 'teen-10-11',
@@ -58,7 +58,7 @@ export const coursesData: CourseInfo[] = [
 		daysKeys: ['mon', 'wed'],
 		time: '18:30-20:00',
 		instructor: 'Fogli Giacomo',
-		bannerImage: '/courses_banners/banner 14-16.avif'
+		bannerImage: '/courses_banners/banner_14_16.webp'
 	},
 	{
 		id: 'adults-16-plus',
@@ -68,6 +68,6 @@ export const coursesData: CourseInfo[] = [
 		daysKeys: ['mon', 'thu'],
 		time: '19:30-21:30',
 		instructor: 'Fogli Giacomo',
-		bannerImage: '/courses_banners/banner_16+.jpg'
+		bannerImage: '/courses_banners/banner_16_plus.webp'
 	}
 ];

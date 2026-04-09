@@ -18,7 +18,7 @@ export const useTranslation = () => {
 		setMounted(true);
 		window.addEventListener('languagechange', updateLang);
 		return () => window.removeEventListener('languagechange', updateLang);
-	}, []);
+	}, [setMounted]);
 
 	const t = (mounted ? translations[lang] : translations.it) as TranslationKeys;
 

@@ -10,7 +10,7 @@ export const Courses = () => {
 
 	const courses = coursesData.map(course => {
 		const title = t.courses[course.titleKey as keyof typeof t.courses] as string;
-		const ageRange = course.ageRange;
+		const ageRange = `${course.ageRange} ${t.courses.years}`;
 		return {
 			id: course.id,
 			title: <span className="block leading-tight">
@@ -18,14 +18,14 @@ export const Courses = () => {
 				{' '}
 				<span className="whitespace-nowrap">{ageRange}</span>
 			</span>,
-			ageRange: course.ageRange,
+			ageRange: ageRange,
 			schedule: `${course.daysKeys.map(day => t.courses.days[day as keyof typeof t.courses.days]).join('/')} ${course.time}`,
 			image: course.bannerImage
 		};
 	});
 
 	return (
-		<section id="courses" className="py-[6em] bg-bg-color overflow-hidden relative">
+		<section id="courses" className="py-6em bg-bg-color overflow-hidden relative">
 			<div className="max-w-7xl mx-auto px-[1em] relative z-10">
 				<div className="relative mb-[3em] text-center">
 					<h2 className="text-[3em] font-bold">{t.courses.title}</h2>

@@ -4,6 +4,8 @@
 
 @theme {
 	--spacing-header-height: 8em;
+	--spacing-6em: 6em;
+	--spacing-10em: 10em;
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--color-accent: #763E3F;

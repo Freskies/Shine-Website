@@ -25,7 +25,7 @@ export const HomeBookLesson = () => {
 	};
 
 	return (
-		<section id="book-lesson-home" className="py-[6em] px-[1em] bg-bg-color">
+		<section id="book-lesson-home" className="py-6em px-[1em] bg-bg-color">
 			<div className="max-w-200 mx-auto">
 				<div className="relative mb-[3em] text-center">
 					<h2 className="text-[3em] font-bold leading-tight">{t.bookLesson.title}</h2>
@@ -85,7 +85,7 @@ export const HomeBookLesson = () => {
 							<div className="grid grid-cols-1 gap-[1em]">
 								{coursesData.map((course) => {
 									const courseTitle = t.courses[course.titleKey as keyof typeof t.courses] as string;
-									const ageRange = course.ageRange;
+									const ageRange = `${course.ageRange} ${t.courses.years}`;
 									const title = `${courseTitle}`;
 									return (
 										<button
