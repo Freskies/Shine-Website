@@ -1,0 +1,302 @@
+.container {
+  min-height: 100vh;
+  background-color: #f4f4f5; /* zinc-50 */
+  padding-top: 6rem; /* pt-24 */
+  padding-bottom: 3rem; /* pb-12 */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.inner {
+  max-width: 42rem; /* max-2xl */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* space-y-8 */
+}
+
+.title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 900; /* font-black */
+  color: #18181b; /* text-zinc-900 */
+  text-transform: uppercase;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 1.5rem; /* p-6 */
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  border: 1px solid #e4e4e7; /* border-zinc-200 */
+}
+
+.cardTitle {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.accordionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.accordionIcon {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #71717a;
+}
+
+.accordionContent {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f4f4f5;
+}
+
+.eventStatusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.statusText {
+  color: #71717a; /* text-zinc-500 */
+}
+
+.statusActive {
+  color: #16a34a; /* text-green-600 */
+  font-weight: 700;
+}
+
+.statusInactive {
+  color: #dc2626; /* text-red-600 */
+  font-weight: 700;
+}
+
+.timeText {
+  color: #71717a; /* text-zinc-500 */
+  font-size: 0.875rem;
+}
+
+.buttonStart {
+  background-color: #16a34a; /* bg-green-600 */
+  color: #ffffff;
+  padding: 0.5rem 1.5rem; /* py-2 px-6 */
+  border-radius: 0.75rem; /* rounded-xl */
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buttonStart:hover {
+  background-color: #15803d; /* green-700 */
+}
+
+.buttonReset {
+  background-color: #e4e4e7; /* bg-zinc-200 */
+  color: #18181b; /* text-zinc-900 */
+  padding: 0.5rem 1.5rem; /* py-2 px-6 */
+  border-radius: 0.75rem; /* rounded-xl */
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buttonReset:hover {
+  background-color: #d4d4d8; /* zinc-300 */
+}
+
+.buttonFinish {
+  background-color: #18181b; /* bg-zinc-900 */
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buttonFinish:hover {
+  background-color: #27272a;
+}
+
+.buttonDelete {
+  background-color: #ef4444; /* bg-red-500 */
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buttonDelete:hover {
+  background-color: #dc2626; /* red-600 */
+}
+
+.form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #e4e4e7;
+  border-radius: 0.75rem;
+  outline: none;
+  transition: ring 0.2s;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 2px #18181b;
+}
+
+.buttonAdd {
+  background-color: #18181b;
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonAdd:hover {
+  background-color: #27272a;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 0.75rem;
+  border: 1px solid #f1f5f9;
+}
+
+.participantInfo {
+  width: 100%;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.participantName {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.participantActions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.actionGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  padding: 0.5rem 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  min-width: 0;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.scoreRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.scoreLabel {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #71717a;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.scoreValue {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #18181b;
+}
+
+.miniButton {
+  flex: 1;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.4rem 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 2.2rem;
+  text-align: center;
+}
+
+.miniButton:hover {
+  background: #18181b;
+  color: white;
+}
+
+.eventList {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.eventItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  border: 1px solid #f1f5f9;
+}
+
+.activeBadge {
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}

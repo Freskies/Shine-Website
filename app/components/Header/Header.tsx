@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useTranslation } from '@/app/hooks/useTranslation';
 import { useHeaderScroll } from './useHeaderScroll';
 import { useNavbarClick } from './useNavbarClick';
+import { IS_MAINTENANCE_MODE } from '@/app/utils/maintenance';
 import { motion } from 'framer-motion';
 import React from "react";
 import styles from './Header.module.css';
@@ -24,6 +25,10 @@ export const Header = () => {
 		{ href: '/about', label: t.header.about },
 		{ href: '/map', label: t.header.map },
 	];
+
+	if (!IS_MAINTENANCE_MODE) {
+		navLinks.push({ href: '/1000back', label: t.header.backflip });
+	}
 
 	// noinspection LongLine
 	return <header
@@ -45,7 +50,7 @@ export const Header = () => {
 			<nav
 				className={`${styles.nav} ${showScrolledState ? styles.navTextDark : styles.navTextWhite}`}>
 				{navLinks.map(({ href, label }) => {
-					const isEvent = href === '/event';
+					const isEvent = href === '/1000back';
 					return (
 						<Link
 							key={href}
