@@ -1,0 +1,60 @@
+.featuredSection {
+	padding: 6em 0;
+	background-color: var(--background);
+	overflow: hidden;
+	position: relative;
+}
+
+.overlay {
+	position: absolute;
+	inset-x: 0;
+	bottom: 0;
+	height: 50%;
+	background: linear-gradient(to top, var(--background), transparent);
+	pointer-events: none;
+}
+
+.container {
+	max-width: 80rem; /* max-w-7xl */
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 1em;
+	position: relative;
+	z-index: 10;
+}
+
+.logoGrid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2em;
+}
+
+@media (min-width: 640px) {
+	.logoGrid {
+		gap: 4em;
+	}
+}
+
+.logoLink {
+	transition: opacity 0.2s;
+	flex: 1;
+	max-width: 7.5rem; /* max-w-30 -> 30 * 0.25rem = 7.5rem */
+	text-decoration: none;
+}
+
+.logoLink:hover {
+	opacity: 0.8;
+}
+
+.logoImage {
+	object-fit: contain;
+	filter: grayscale(100%);
+	transition: all 0.3s;
+	width: 100%;
+	height: auto;
+}
+
+.logoLink:hover .logoImage {
+	filter: grayscale(0%);
+}

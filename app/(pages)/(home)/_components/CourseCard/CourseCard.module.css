@@ -1,0 +1,88 @@
+.card {
+	display: block;
+	background-color: white;
+	border: 1px solid #f4f4f5; /* border-zinc-100 */
+	border-radius: 1.5em;
+	overflow: hidden;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	text-decoration: none;
+	color: inherit;
+}
+
+.card:hover {
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+	transform: translateY(-0.5rem); /* hover:-translate-y-2 */
+}
+
+.figure {
+	position: relative;
+	height: 15em;
+	overflow: hidden;
+	margin: 0;
+}
+
+.placeholder {
+	position: absolute;
+	inset: 0;
+	background-color: #e4e4e7; /* bg-zinc-200 */
+	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	z-index: -10;
+}
+
+@keyframes pulse {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: .5;
+	}
+}
+
+.image {
+	object-fit: cover;
+	transition: transform 0.5s;
+}
+
+.card:hover .image {
+	transform: scale(1.1);
+}
+
+.content {
+	padding: 1.5em;
+}
+
+.title {
+	font-size: 1.3em;
+	font-weight: 700;
+	margin-bottom: 0.5em;
+	transition: color 0.3s;
+}
+
+.card:hover .title {
+	color: var(--accent);
+}
+
+.schedule {
+	color: black;
+	font-size: 0.9em;
+	margin-bottom: 1.5em;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.scheduleLabel {
+	font-weight: 600;
+}
+
+.cta {
+	font-size: 0.9em;
+	font-weight: 700;
+	border-bottom: 2px solid black;
+	transition: border-color 0.3s;
+}
+
+.card:hover .cta {
+	border-color: var(--accent);
+}

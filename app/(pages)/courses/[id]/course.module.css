@@ -1,0 +1,166 @@
+.pageWrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.main {
+	flex-grow: 1;
+	padding-top: 6em;
+}
+
+.notFoundContainer {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.notFoundContent {
+	text-align: center;
+}
+
+.notFoundTitle {
+	font-size: 3em;
+	font-weight: 700;
+	margin-bottom: 0.5em;
+}
+
+.notFoundText {
+	color: #71717a; /* text-zinc-500 */
+}
+
+.contentContainer {
+	max-width: 60rem; /* max-w-240 if 1rem=16px and 240 is 60rem */
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-bottom: 4em;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	gap: 1em;
+	align-items: start;
+}
+
+@media (min-width: 768px) {
+	.grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 4em;
+	}
+}
+
+.courseInfo {
+	display: flex;
+	flex-direction: column;
+	padding: 2em;
+	border-radius: 2em;
+	max-width: 40rem; /* max-w-160 */
+}
+
+.courseTitle {
+	font-size: 3.5em;
+	font-weight: 700;
+	margin-bottom: 0.5em;
+	line-height: 1.1;
+}
+
+.whitespaceNowrap {
+	white-space: nowrap;
+}
+
+.sectionTitle {
+	font-size: 1.5em;
+	font-weight: 700;
+	margin-bottom: 1em;
+}
+
+.descriptionText {
+	color: #52525b; /* text-zinc-600 */
+	line-height: 1.625;
+	margin-bottom: 2em;
+}
+
+.scheduleText {
+	color: #52525b; /* text-zinc-600 */
+}
+
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+}
+
+.coachCard {
+	background-color: #f8fafc; /* bg-zinc-50 */
+	padding: 2em;
+	border-radius: 2em;
+	border: 1px solid #f4f4f5; /* border-zinc-100 */
+	display: flex;
+	flex-direction: column;
+}
+
+@media (min-width: 768px) {
+	.coachCard {
+		margin-top: 1.5rem; /* md:mt-6 */
+	}
+}
+
+.coachHeader {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	margin-bottom: 1.5em;
+}
+
+.coachImageContainer {
+	width: 4em;
+	height: 4em;
+	background-color: #e4e4e7; /* bg-zinc-200 */
+	border-radius: 9999px;
+	overflow: hidden;
+	position: relative;
+	border: 2px solid white;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	flex-shrink: 0;
+}
+
+.coachName {
+	font-weight: 700;
+	font-size: 1.2em;
+}
+
+.coachRole {
+	color: #71717a; /* text-zinc-500 */
+	font-size: 0.9em;
+}
+
+.coachBio {
+	color: #52525b; /* text-zinc-600 */
+	font-size: 0.9em;
+	margin-bottom: 1.5em;
+	flex-grow: 1;
+}
+
+.whatsappButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	width: 100%;
+	background-color: #25D366;
+	color: white;
+	padding: 1em;
+	border-radius: 0.75rem; /* rounded-xl */
+	font-weight: 700;
+	transition: all 0.2s;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	text-decoration: none;
+}
+
+.whatsappButton:hover {
+	background-color: #128C7E;
+}

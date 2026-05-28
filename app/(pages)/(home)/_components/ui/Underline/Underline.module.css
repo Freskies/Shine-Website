@@ -1,0 +1,10 @@
+.underline {
+	position: absolute;
+	left: 50%;
+	bottom: -0.2em;
+	transform: translateX(-50%);
+	width: 2em;
+	height: 0.15em;
+	background-color: var(--accent);
+	border-radius: 9999px;
+}

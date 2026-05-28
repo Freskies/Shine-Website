@@ -1,5 +1,6 @@
 export interface Instructor {
 	phone: string;
+	image?: string;
 }
 
 export const instructors: Record<string, Instructor> = {
@@ -17,6 +18,7 @@ export const instructors: Record<string, Instructor> = {
 	},
 	"Fogli Giacomo": {
 		phone: "+39 348 149 6994",
+		image: "/coach_profile_img/fogli_giacomo_profile.webp",
 	},
 	"De Luca Francesco": {
 		phone: "+39 331 933 1085",

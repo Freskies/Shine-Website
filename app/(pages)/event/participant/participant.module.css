@@ -1,0 +1,166 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f5; /* zinc-50 */
+  padding: 1rem;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 2rem; /* p-8 */
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
+  width: 100%;
+  max-width: 28rem; /* max-md */
+  border: 1px solid #e4e4e7; /* border-zinc-200 */
+}
+
+.title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1.5rem; /* mb-6 */
+  text-align: center;
+  color: #18181b; /* text-zinc-900 */
+}
+
+.nameList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* space-y-2 */
+}
+
+.nameButton {
+  width: 100%;
+  padding: 1rem; /* p-4 */
+  text-align: left;
+  border: 1px solid #e4e4e7; /* border-zinc-200 */
+  border-radius: 0.75rem; /* rounded-xl */
+  background: white;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.nameButton:hover {
+  background-color: #18181b; /* bg-zinc-900 */
+  color: #ffffff;
+}
+
+.cardLarge {
+  composes: card;
+  border-radius: 1.5rem; /* rounded-3xl */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+  text-align: center;
+}
+
+.backButton {
+  font-size: 0.875rem; /* text-sm */
+  color: #a1a1aa; /* text-zinc-400 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.backButton:hover {
+  color: #18181b; /* text-zinc-900 */
+}
+
+.participantName {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 900; /* font-black */
+  color: #18181b; /* text-zinc-900 */
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.counterContainer {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.counterValue {
+  font-size: 6rem; /* text-8xl */
+  font-weight: 900; /* font-black */
+  color: #18181b; /* text-zinc-900 */
+  margin-bottom: 0.5rem;
+}
+
+.counterLabel {
+  color: #71717a; /* text-zinc-500 */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* tracking-widest */
+}
+
+.buttonGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.buttonPlus1 {
+  grid-column: span 2 / span 2;
+  background-color: #18181b; /* bg-zinc-900 */
+  color: #ffffff;
+  padding: 2rem; /* p-8 */
+  border-radius: 1rem; /* rounded-2xl */
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 900;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.buttonPlus1:hover {
+  transform: scale(1.02);
+}
+
+.buttonPlus1:active {
+  transform: scale(0.95);
+}
+
+.buttonPlusSmall {
+  background-color: #f4f4f5; /* bg-zinc-100 */
+  color: #18181b; /* text-zinc-900 */
+  padding: 1.5rem; /* p-6 */
+  border-radius: 1rem; /* rounded-2xl */
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 900;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonPlusSmall:hover {
+  background-color: #e4e4e7; /* bg-zinc-200 */
+}
+
+.buttonPlusSmall:active {
+  transform: scale(0.95);
+}
+
+.buttonMinus {
+  grid-column: span 2 / span 2;
+  background-color: #fef2f2; /* bg-red-50 */
+  color: #dc2626; /* text-red-600 */
+  padding: 1rem; /* p-4 */
+  border-radius: 0.75rem; /* rounded-xl */
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 700;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonMinus:hover {
+  background-color: #fee2e2; /* bg-red-100 */
+}
+
+.buttonMinus:active {
+  transform: scale(0.95);
+}

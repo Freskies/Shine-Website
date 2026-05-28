@@ -1,0 +1,55 @@
+.coursesSection {
+	padding: 6em 0;
+	background-color: var(--background);
+	overflow: hidden;
+	position: relative;
+}
+
+.container {
+	max-width: 80rem; /* max-w-7xl */
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 1em;
+	position: relative;
+	z-index: 10;
+}
+
+.header {
+	position: relative;
+	margin-bottom: 3em;
+	text-align: center;
+}
+
+.title {
+	font-size: 3em;
+	font-weight: 700;
+}
+
+.courseList {
+	display: grid;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	gap: 2.5em;
+	list-style: none;
+	padding: 0;
+}
+
+@media (min-width: 640px) {
+	.courseList {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 1024px) {
+	.courseList {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+.blockLeadingTight {
+	display: block;
+	line-height: 1.25;
+}
+
+.whitespaceNowrap {
+	white-space: nowrap;
+}

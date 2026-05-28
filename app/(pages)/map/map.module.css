@@ -1,0 +1,40 @@
+.pageWrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.main {
+	padding-top: 6em;
+	padding-bottom: 4em;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.container {
+	max-width: 80rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.title {
+	font-size: 3em;
+	font-weight: 700;
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+.mapPlaceholder {
+	background-color: #f4f4f5; /* bg-zinc-100 approximations */
+	border-radius: 2em;
+	height: 40em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px dashed #d4d4d8; /* border-zinc-300 */
+}
+
+.placeholderText {
+	color: #71717a; /* text-zinc-500 */
+	font-size: 1.2em;
+}

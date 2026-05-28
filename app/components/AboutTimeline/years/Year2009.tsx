@@ -1,1 +1,0 @@
-export const Year2009 = () => <div className='py-20 text-center text-3xl font-bold'>Placeholder per il 2009</div>;

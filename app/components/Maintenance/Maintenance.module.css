@@ -1,0 +1,57 @@
+.maintenance {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem 1rem;
+	text-align: center;
+	background-color: white;
+}
+
+.container {
+	max-width: 28rem; /* max-w-md */
+	width: 100%;
+}
+
+.title {
+	font-size: 2.25rem; /* text-4xl */
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	color: #18181b; /* text-zinc-900 */
+}
+
+.description {
+	font-size: 1.125rem; /* text-lg */
+	color: #52525b; /* text-zinc-600 */
+	margin-bottom: 2rem;
+	line-height: 1.625;
+}
+
+.contactBox {
+	padding: 1.5rem;
+	background-color: #f8fafc; /* bg-zinc-50 approximates */
+	border-radius: 0.75rem; /* rounded-xl */
+	border: 1px solid #f4f4f5; /* border-zinc-100 */
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+}
+
+.contactLabel {
+	font-size: 0.875rem; /* text-sm */
+	font-weight: 500;
+	color: #71717a; /* text-zinc-500 */
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.phoneLink {
+	font-size: 1.5rem; /* text-2xl */
+	font-weight: 700;
+	color: #18181b;
+	transition: color 0.2s;
+	text-decoration: underline;
+}
+
+.phoneLink:hover {
+	color: #ea580c; /* orange-600 */
+}

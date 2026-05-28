@@ -8,6 +8,7 @@ import { useHeaderScroll } from './useHeaderScroll';
 import { useNavbarClick } from './useNavbarClick';
 import { motion } from 'framer-motion';
 import React from "react";
+import styles from './Header.module.css';
 
 export const Header = () => {
 	const { t } = useTranslation();
@@ -25,44 +26,44 @@ export const Header = () => {
 	];
 
 	// noinspection LongLine
-	return <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-		showScrolledState
-			? 'bg-white/80 backdrop-blur-md border-b border-zinc-200'
-			: 'bg-transparent border-b border-transparent'
-	} py-4`}>
-		<div className="max-w-7xl mx-auto px-[1em] h-[3em] flex items-center justify-between">
+	return <header
+		className={`${styles.header} ${showScrolledState ? styles.headerScrolled : styles.headerTransparent}`}>
+		<div className={styles.container}>
 			<Link href="/"
 			      onClick={handleNavbarClick('/')}
-			      className={`flex items-center gap-[0.5em] transition-colors ${showScrolledState ? 'text-black' : 'text-white'}`}>
+			      className={`${styles.logoLink} ${showScrolledState ? styles.textBlack : styles.textWhite}`}>
 				<Image
 					src="/temp/logo_shine_circle.avif"
 					alt="Shine Logo"
 					width={40}
 					height={40}
-					className={`rounded-full transition-all duration-300 ${(showScrolledState ? '' : 'brightness-0 invert')}`}
+					className={`${styles.logoImage} ${showScrolledState ? '' : styles.logoInverted}`}
 				/>
-				<span className="font-bold text-[1.2em] hidden sm:block">SHINE</span>
+				<span className={styles.logoText}>SHINE</span>
 			</Link>
 
 			<nav
-				className={`flex gap-[1.5em] font-medium transition-colors ${showScrolledState ? 'text-zinc-900' : 'text-white'}`}>
-				{navLinks.map(({ href, label }) => (
-					<Link
-						key={href}
-						href={href}
-						onClick={handleNavbarClick(href)}
-						className="hover:opacity-70 transition-opacity relative py-1"
-					>
-						{label}
-						{pathname === href && (
-							<motion.div
-								layoutId="nav-underline"
-								className="absolute -bottom-1 left-0 right-0 h-0.5 bg-current"
-								transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-							/>
-						)}
-					</Link>
-				))}
+				className={`${styles.nav} ${showScrolledState ? styles.navTextDark : styles.navTextWhite}`}>
+				{navLinks.map(({ href, label }) => {
+					const isEvent = href === '/event';
+					return (
+						<Link
+							key={href}
+							href={href}
+							onClick={handleNavbarClick(href)}
+							className={isEvent ? styles.navButton : styles.navLink}
+						>
+							{label}
+							{pathname === href && !isEvent && (
+								<motion.div
+									layoutId="nav-underline"
+									className={styles.underline}
+									transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+								/>
+							)}
+						</Link>
+					);
+				})}
 			</nav>
 		</div>
 	</header>;

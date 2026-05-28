@@ -1,18 +1,22 @@
 'use client';
 
 import { useTranslation } from '@/app/hooks/useTranslation';
+import { useLockBodyScroll } from '@/app/hooks/useLockBodyScroll';
 import { useState } from 'react';
 import { coursesData, CourseInfo } from '@/app/data/courses';
 import { instructors } from '@/app/data/instructors';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Underline } from '../ui/Underline/Underline';
+import { Underline } from '@/app/(pages)/(home)/_components/ui/Underline/Underline';
 import Image from 'next/image';
 import { IoDocumentTextOutline, IoCalendarOutline, IoCloseOutline, IoLogoWhatsapp } from 'react-icons/io5'
+
+import styles from './BookLesson.module.css';
 
 export const BookLesson = ({ courseName }: { courseName?: string }) => {
 	const { t } = useTranslation();
 	const [bookingType, setBookingType] = useState<'manual' | 'online'>('manual');
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	useLockBodyScroll(isModalOpen);
 	const [selectedCourse, setSelectedCourse] = useState<CourseInfo | null>(
 		courseName ? (coursesData.find(c => {
 			const title = `${t.courses[c.titleKey as keyof typeof t.courses] as string} ${c.ageRange}`;
@@ -41,7 +45,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 				<a
 					href="/documents/Tesseramento%20Shine%202025-2026.pdf"
 					download
-					className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 px-4 py-2 rounded-lg transition-colors mt-2 font-semibold"
+					className={styles.actionButton}
 				>
 					<IoDocumentTextOutline size="20px"/>
 					{t.bookLesson.downloadPdf}
@@ -55,7 +59,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 				<a
 					href="/documents/Richiesta%20certificato%20medico%202025-2026.pdf"
 					download
-					className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 px-4 py-2 rounded-lg transition-colors mt-2 font-semibold"
+					className={styles.actionButton}
 				>
 					<IoDocumentTextOutline size="20px"/>
 					{t.bookLesson.downloadRequest}
@@ -68,7 +72,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 			action: (
 				<a
 					href={`mailto:${t.footer.email}`}
-					className="text-accent hover:underline mt-1 inline-block font-medium"
+					className={styles.emailLink}
 				>
 					{t.footer.email}
 				</a>
@@ -82,7 +86,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 					href={whatsappUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="inline-flex items-center gap-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 px-4 py-2 rounded-lg transition-colors mt-2 font-semibold"
+					className={styles.actionButton}
 				>
 					<IoLogoWhatsapp size="20px"/>
 					{t.bookLesson.whatsappContact}
@@ -92,42 +96,42 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 	];
 
 	return (
-		<section id="book-lesson" className="py-[6em] px-[1em] bg-zinc-50">
-			<div className="max-w-200 mx-auto">
-				<div className="text-center mb-[2em]">
-					<h2 className="text-[2.5em] font-bold mb-[0.5em] leading-tight">{t.bookLesson.title}</h2>
+		<section id="book-lesson" className={styles.bookSection}>
+			<div className={styles.container}>
+				<div className={styles.header}>
+					<h2 className={styles.title}>{t.bookLesson.title}</h2>
 				</div>
 
-				<div className="bg-zinc-100 rounded-[2em] p-[2em] border border-zinc-200 mb-[2em] overflow-hidden">
-					<div className="mb-[1.5em]">
-						<div className="relative bg-zinc-200 p-1 rounded-full w-fit mx-auto flex">
+				<div className={styles.card}>
+					<div className={styles.toggleContainer}>
+						<div className={styles.toggle}>
 							<button
 								onClick={() => setBookingType('manual')}
-								className="relative px-[2em] py-[0.6em] rounded-full font-bold"
+								className={styles.toggleButton}
 							>
 								{bookingType === 'manual' && (
 									<motion.span
 										layoutId="booking-toggle"
-										className="absolute inset-0 bg-accent rounded-full z-0"
+										className={styles.toggleBackground}
 										transition={{ type: 'spring', stiffness: 380, damping: 30 }}
 									/>
 								)}
 								<span
-									className={`relative z-10 ${bookingType === 'manual' ? 'text-white' : 'text-zinc-600'}`}>{t.bookLesson.manual}</span>
+									className={`relative z-10 ${bookingType === 'manual' ? styles.toggleActive : styles.toggleInactive}`}>{t.bookLesson.manual}</span>
 							</button>
 							<button
 								onClick={() => setBookingType('online')}
-								className="relative px-[2em] py-[0.6em] rounded-full font-bold"
+								className={styles.toggleButton}
 							>
 								{bookingType === 'online' && (
 									<motion.span
 										layoutId="booking-toggle"
-										className="absolute inset-0 bg-accent rounded-full z-0"
+										className={styles.toggleBackground}
 										transition={{ type: 'spring', stiffness: 380, damping: 30 }}
 									/>
 								)}
 								<span
-									className={`relative z-10 ${bookingType === 'online' ? 'text-white' : 'text-zinc-600'}`}>{t.bookLesson.online}</span>
+									className={`relative z-10 ${bookingType === 'online' ? styles.toggleActive : styles.toggleInactive}`}>{t.bookLesson.online}</span>
 							</button>
 						</div>
 					</div>
@@ -140,17 +144,15 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 								animate={{ opacity: 1, x: 0 }}
 								exit={{ opacity: 0, x: 20 }}
 								transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-								className="grid gap-[2em] mb-[2em]"
+								className={styles.manualSteps}
 							>
 								{steps.map((step) => (
-									<div key={step.id}
-									     className="flex gap-[1.5em] items-center p-[2em] bg-white rounded-[2em] shadow-sm border border-zinc-100">
-										<div
-											className="bg-accent text-white w-[2.5em] h-[2.5em] rounded-full flex items-center justify-center font-bold flex-shrink-0 text-[1.2em]">
+									<div key={step.id} className={`${styles.card} ${styles.step}`} style={{ margin: 0, background: 'white' }}>
+										<div className={styles.stepNumber}>
 											{step.id}
 										</div>
 										<div>
-											<p className="text-[1.2em] font-medium text-zinc-800">{step.text}</p>
+											<p className={styles.stepText}>{step.text}</p>
 											{step.action}
 										</div>
 									</div>
@@ -163,24 +165,21 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 								animate={{ opacity: 1, x: 0 }}
 								exit={{ opacity: 0, x: -20 }}
 								transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-								className="bg-white rounded-[2em] p-[4em] text-center border border-zinc-100 shadow-sm mb-[2em]"
+								className={`${styles.card} ${styles.onlineBooking}`} style={{ margin: 0, background: 'white', padding: '4em' }}
 							>
-								<p className="text-zinc-500 italic mb-4">Coming Soon - Online Booking</p>
+								<p className={styles.onlineTitle} style={{ color: '#71717a', fontStyle: 'italic', fontWeight: 'normal' }}>Coming Soon - Online Booking</p>
 								<div className="flex justify-center">
 									<IoCalendarOutline color={'#e5e7eb'} size="48px"/>
 								</div>
 							</motion.div>
 						)}
 					</AnimatePresence>
-
-					<div className="text-center">
-					</div>
 				</div>
 			</div>
 
 			<AnimatePresence>
 				{isModalOpen && (
-					<div className="fixed inset-0 z-100 flex items-center justify-center p-[1em]">
+					<div className={styles.modalOverlay}>
 						<motion.div
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
@@ -192,18 +191,18 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 							initial={{ opacity: 0, scale: 0.9, y: 20 }}
 							animate={{ opacity: 1, scale: 1, y: 0 }}
 							exit={{ opacity: 0, scale: 0.9, y: 20 }}
-							className="bg-white w-full max-w-160 rounded-[2.5em] p-[2em] relative z-10 max-h-[90vh] overflow-y-auto"
+							className={styles.modalContent}
 						>
 							<button
 								onClick={() => setIsModalOpen(false)}
-								className="absolute top-[1.5em] right-[1.5em] text-zinc-400 hover:text-zinc-800 transition-colors"
+								className={styles.modalClose}
 							>
 								<IoCloseOutline size="24px"/>
 							</button>
 
-							<h3 className="text-[2em] font-bold mb-[1.5em] text-center">{t.bookLesson.modalTitle}</h3>
+							<h3 className={styles.modalTitle} style={{ textAlign: 'center' }}>{t.bookLesson.modalTitle}</h3>
 
-							<div className="grid grid-cols-1 gap-[1em] mb-[2em]">
+							<div className={styles.courseList} style={{ marginBottom: '2em' }}>
 								{coursesData.map((course) => {
 									const title = `${t.courses[course.titleKey as keyof typeof t.courses] as string} ${course.ageRange}`;
 									const isSelected = selectedCourse?.id === course.id;
@@ -211,14 +210,10 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 										<button
 											key={course.id}
 											onClick={() => handleCourseSelect(course)}
-											className={`p-[1.2em] rounded-[1.5em] text-left transition-all border-2 ${
-												isSelected
-													? 'border-accent bg-accent/5'
-													: 'border-zinc-100 hover:border-zinc-200 bg-zinc-50'
-											}`}
+											className={`${styles.courseOption} ${isSelected ? styles.courseOptionActive : ''}`}
 										>
-											<p className={`font-bold ${isSelected ? 'text-accent' : 'text-zinc-800'}`}>{title}</p>
-											<p className="text-[0.9em] text-zinc-500">
+											<p className={`${styles.courseOptionTitle} ${isSelected ? styles.toggleActive : ''}`} style={{ color: isSelected ? 'var(--accent)' : '' }}>{title}</p>
+											<p className={styles.courseOptionInstructor}>
 												{course.daysKeys.map(day => t.courses.days[day as keyof typeof t.courses.days] as string).join('/')} {course.time}
 											</p>
 										</button>
@@ -235,7 +230,7 @@ export const BookLesson = ({ courseName }: { courseName?: string }) => {
 									<div className="flex flex-col md:flex-row gap-[1.5em] items-center text-center md:text-left">
 										<div
 											className="w-[5em] h-[5em] bg-zinc-100 rounded-full overflow-hidden relative flex-shrink-0 border-2 border-white shadow-md">
-											<Image src="/temp/logo_shine_circle.avif" alt={selectedCourse.instructor} fill
+											<Image src={instructor?.image || "/temp/logo_shine_circle.avif"} alt={selectedCourse.instructor} fill
 											       sizes="80px"
 											       className="object-cover"/>
 										</div>

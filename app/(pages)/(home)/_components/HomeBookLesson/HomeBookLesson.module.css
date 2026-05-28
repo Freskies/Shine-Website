@@ -1,0 +1,164 @@
+.homeBookSection {
+	padding: 6em 1em;
+	background-color: var(--background);
+}
+
+.container {
+	max-width: 50rem; /* max-w-200 */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header {
+	position: relative;
+	margin-bottom: 3em;
+	text-align: center;
+}
+
+.title {
+	font-size: 3em;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+.stepsList {
+	display: grid;
+	gap: 2em;
+	margin-bottom: 4em;
+}
+
+.stepCard {
+	display: flex;
+	gap: 1.5em;
+	align-items: center;
+	padding: 2em;
+	background-color: white;
+	border-radius: 2em;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+	border: 1px solid #f4f4f5; /* border-zinc-100 */
+}
+
+.stepNumber {
+	background-color: var(--accent);
+	color: white;
+	width: 2.5em;
+	height: 2.5em;
+	border-radius: 9999px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	flex-shrink: 0;
+	font-size: 1.2em;
+}
+
+.stepText {
+	font-size: 1.2em;
+	font-weight: 500;
+	color: #27272a; /* text-zinc-800 */
+}
+
+.ctaContainer {
+	text-align: center;
+}
+
+.ctaButton {
+	display: inline-block;
+	background-color: var(--accent);
+	color: white;
+	padding: 1.3em 3.5em;
+	font-size: 1.1em;
+	border-radius: 9999px;
+	font-weight: 700;
+	transition: all 0.2s;
+	border: none;
+	cursor: pointer;
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* shadow-lg */
+	text-decoration: none;
+}
+
+.ctaButton:hover {
+	background-color: rgba(118, 62, 63, 0.9);
+	transform: scale(1.05);
+}
+
+.modalOverlay {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(4px);
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+}
+
+.modalContent {
+	background-color: white;
+	width: 100%;
+	max-width: 40rem; /* max-w-160 */
+	border-radius: 2.5em;
+	padding: 2em;
+	position: relative;
+	z-index: 10;
+	max-height: 90vh;
+	overflow-y: auto;
+}
+
+.modalClose {
+	position: absolute;
+	top: 1.5em;
+	right: 1.5em;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: #a1a1aa; /* text-zinc-400 */
+	transition: color 0.2s;
+}
+
+.modalClose:hover {
+	color: #27272a; /* text-zinc-800 */
+}
+
+.modalTitle {
+	font-size: 2em;
+	font-weight: 700;
+	margin-bottom: 1.5em;
+	text-align: center;
+}
+
+.courseList {
+	display: grid;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	gap: 1em;
+}
+
+.courseOption {
+	padding: 1.2em;
+	border-radius: 1.5em;
+	text-align: left;
+	transition: all 0.2s;
+	border: 2px solid #f4f4f5; /* border-zinc-100 */
+	background-color: #f8fafc; /* bg-zinc-50 */
+	cursor: pointer;
+}
+
+.courseOption:hover {
+	border-color: var(--accent);
+	background-color: rgba(118, 62, 63, 0.05);
+}
+
+.courseOptionTitle {
+	font-weight: 700;
+	color: #27272a; /* text-zinc-800 */
+}
+
+.whitespaceNowrap {
+	white-space: nowrap;
+}
+
+.courseOptionInfo {
+	font-size: 0.9em;
+	color: #71717a; /* text-zinc-500 */
+}

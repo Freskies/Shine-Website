@@ -3,6 +3,7 @@ export const en = {
 		home: "Home",
 		about: "About",
 		map: "Map",
+		backflip: "1000 Backflip",
 	},
 	hero: {
 		title: "Destroy limits\nBUILD STRENGTH",
@@ -118,7 +119,7 @@ export const en = {
 	},
 	bookLesson: {
 		title: "Book a free trial lesson",
-		cta: "Book now",
+		cta: "Book a trial lesson",
 		step1: "Fill out the registration form",
 		downloadPdf: "Download Form",
 		downloadRequest: "Download Request",

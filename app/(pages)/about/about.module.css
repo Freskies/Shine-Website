@@ -1,0 +1,37 @@
+.aboutPage {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.main {
+	flex: 1;
+	padding-top: 6em;
+}
+
+.introSection {
+	max-width: 56rem; /* max-w-4xl */
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5rem 1rem; /* py-20 px-4 */
+	text-align: center;
+}
+
+.title {
+	font-size: 3rem; /* text-5xl */
+	font-weight: 900;
+	margin-bottom: 2rem;
+	color: #18181b; /* text-zinc-900 */
+}
+
+@media (min-width: 768px) {
+	.title {
+		font-size: 4.5rem; /* text-7xl */
+	}
+}
+
+.description {
+	font-size: 1.25rem; /* text-xl */
+	color: #52525b; /* text-zinc-600 */
+	line-height: 1.625;
+}

@@ -1,0 +1,7 @@
+.placeholder {
+	padding-top: 5rem; /* py-20 */
+	padding-bottom: 5rem;
+	text-align: center;
+	font-size: 1.875rem; /* text-3xl */
+	font-weight: 700; /* font-bold */
+}
