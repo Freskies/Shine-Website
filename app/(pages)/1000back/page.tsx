@@ -2,14 +2,11 @@
 
 import { useGlobalMetrics } from '@/app/hooks/1000back/useGlobalMetrics';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Maintenance } from '@/app/components/Maintenance/Maintenance';
 import styles from './event1000.module.css';
 
 export const dynamic = 'force-dynamic';
 
 export default function Dashboard () {
-	const isMaintenance = false;
-
 	const {
 		activeEvent,
 		totals,
@@ -30,13 +27,6 @@ export default function Dashboard () {
 		const s = totalSeconds % 60;
 		return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
 	};
-
-	if (isMaintenance) {
-		return <Maintenance 
-			title="Evento in Arrivo" 
-			description="Stiamo preparando tutto per la sfida. Torna presto per vedere il progresso in tempo reale!"
-		/>;
-	}
 
 	if (!activeEvent) {
 		return (

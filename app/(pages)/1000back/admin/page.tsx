@@ -2,7 +2,6 @@
 
 import { useAdmin } from '@/app/hooks/1000back/useAdmin';
 import LoginGate from '@/app/components/Auth/LoginGate';
-import { Maintenance } from '@/app/components/Maintenance/Maintenance';
 import styles from './admin.module.css';
 import { Participant } from '@/app/services/1000Back/apiParticipants';
 import { useState } from 'react';
@@ -10,7 +9,6 @@ import { useState } from 'react';
 export const dynamic = 'force-dynamic';
 
 export default function AdminPage() {
-	const isMaintenance = false;
 	const {
 		isAuthenticated,
 		setIsAuthenticated,
@@ -34,13 +32,6 @@ export default function AdminPage() {
 
 	const [isEventsOpen, setIsEventsOpen] = useState(false);
 	const [isControlOpen, setIsControlOpen] = useState(false);
-
-	if (isMaintenance) {
-		return <Maintenance 
-			title="Admin Panel protetto" 
-			description="L'accesso al pannello di controllo è temporaneamente disabilitato."
-		/>;
-	}
 
 	if (isLoading) return null;
 	
@@ -81,10 +72,15 @@ export default function AdminPage() {
 							<div className={styles.eventList}>
 								{events.map(e => (
 									<div key={e.id} className={styles.eventItem}>
-										<span>{e.name} {e.is_active && <span className={styles.activeBadge}>(Attivo)</span>}</span>
-										{!e.is_active && (
-											<div className="flex gap-2">
-												<button onClick={() => setActiveEventMutation.mutate(e.id)} className={styles.miniButton}>ATTIVA</button>
+										<span>{e.name}</span>
+										<div className="flex gap-2">
+											{!e.is_active && (
+												<button onClick={() => setActiveEventMutation.mutate(e.id)} className={styles.miniButton}>SET CURRENT</button>
+											)}
+											{e.is_active && (
+												<span className={styles.activeBadge}>(Corrente)</span>
+											)}
+											{(!e.start_time || !e.is_active) && (
 												<button 
 													onClick={() => {
 														if(confirm('ATTENZIONE: Sei sicuro di voler cancellare questo evento e TUTTI i suoi partecipanti? L\'azione è irreversibile.')) {
@@ -96,21 +92,8 @@ export default function AdminPage() {
 												>
 													ELIMINA
 												</button>
-											</div>
-										)}
-										{e.is_active && (!e.start_time || !e.is_active) && (
-											<button 
-												onClick={() => {
-													if(confirm('ATTENZIONE: Sei sicuro di voler cancellare questo evento e TUTTI i suoi partecipanti? L\'azione è irreversibile.')) {
-														deleteEventMutation.mutate(e.id);
-													}
-												}}
-												className={styles.miniButton}
-												style={{ color: '#dc2626' }}
-											>
-												ELIMINA
-											</button>
-										)}
+											)}
+										</div>
 									</div>
 								))}
 							</div>
@@ -135,7 +118,7 @@ export default function AdminPage() {
 							<div className={styles.eventStatusRow}>
 								<div>
 									<p className={styles.statusText}>Stato: <span className={activeEvent?.is_active ? styles.statusActive : styles.statusInactive}>
-										{activeEvent?.is_active ? 'ATTIVO' : 'NON ATTIVO'}
+										{activeEvent?.is_active ? (activeEvent.start_time ? 'IN CORSO' : 'ATTIVO (PRONTO)') : 'NON SELEZIONATO'}
 									</span></p>
 									<p className={styles.timeText}>Inizio: {activeEvent?.start_time ? new Date(activeEvent.start_time).toLocaleString() : '-'}</p>
 								</div>

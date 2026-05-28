@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import { useTranslation } from '@/app/hooks/useTranslation';
 import { useHeaderScroll } from './useHeaderScroll';
 import { useNavbarClick } from './useNavbarClick';
-import { IS_MAINTENANCE_MODE } from '@/app/utils/maintenance';
 import { motion } from 'framer-motion';
 import React from "react";
 import styles from './Header.module.css';
@@ -24,11 +23,8 @@ export const Header = () => {
 		{ href: '/', label: t.header.home },
 		{ href: '/about', label: t.header.about },
 		{ href: '/map', label: t.header.map },
+		{ href: '/1000back', label: t.header.backflip },
 	];
-
-	if (!IS_MAINTENANCE_MODE) {
-		navLinks.push({ href: '/1000back', label: t.header.backflip });
-	}
 
 	// noinspection LongLine
 	return <header
