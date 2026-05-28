@@ -11,6 +11,8 @@ interface Participant {
 	backflips: number;
 }
 
+export const dynamic = 'force-dynamic';
+
 export default function ParticipantPage() {
 	const isMaintenance = true;
 	const [selectedName, setSelectedName] = useState<string | null>(null);

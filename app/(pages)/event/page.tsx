@@ -18,6 +18,8 @@ interface EventStatus {
 	is_active: boolean;
 }
 
+export const dynamic = 'force-dynamic';
+
 export default function Dashboard () {
 	const isMaintenance = true;
 

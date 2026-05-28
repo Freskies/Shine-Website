@@ -6,6 +6,8 @@ import { supabase } from '@/app/lib/supabase';
 import { Maintenance } from '@/app/components/Maintenance/Maintenance';
 import styles from './admin.module.css';
 
+export const dynamic = 'force-dynamic';
+
 export default function AdminPage() {
 	const isMaintenance = true;
 	const [newName, setNewName] = useState('');
