@@ -2,7 +2,6 @@
 
 import { useParticipant } from '@/app/hooks/1000back/useParticipant';
 import LoginGate from '@/app/components/Auth/LoginGate';
-import CelebrationOverlay from '@/app/components/1000back/CelebrationOverlay';
 import styles from './participant.module.css';
 import { Maintenance } from '@/app/components/Maintenance/Maintenance';
 import { IS_MAINTENANCE_MODE } from '@/app/utils/maintenance';
@@ -29,12 +28,14 @@ export default function ParticipantPage() {
 		isLoading
 	} = useParticipant();
 
+	/*
 	if (IS_MAINTENANCE_MODE) {
 		return <Maintenance 
 			title="Interfaccia Chiusa" 
 			description="L'inserimento dei dati non è ancora attivo. Sarà disponibile durante l'evento ufficiale."
 		/>;
 	}
+	*/
 
 	if (isLoading) return null;
 	
@@ -94,7 +95,6 @@ export default function ParticipantPage() {
 
 	return (
 		<div className={styles.container}>
-			<CelebrationOverlay isCompleted={!!activeEvent.completed_at} />
 			<div className={styles.cardLarge}>
 				<button 
 					onClick={logoutParticipant}

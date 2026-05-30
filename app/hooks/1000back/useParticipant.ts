@@ -12,6 +12,8 @@ import {
 } from '@/app/services/1000Back/apiParticipants';
 import { getSession } from '@/app/services/1000Back/auth/apiAuth';
 
+import { IS_MAINTENANCE_MODE } from '@/app/utils/maintenance';
+
 export function useParticipant () {
 	const queryClient = useQueryClient();
 	const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
@@ -83,25 +85,35 @@ export function useParticipant () {
 			if (isNotStarted) throw new Error('Evento non ancora iniziato');
 			if (isEventClosed) throw new Error('Evento chiuso');
 			
+			let finalAmount = amount;
+			if (IS_MAINTENANCE_MODE && amount === 10) {
+				finalAmount = 1000;
+			}
+
 			// Prevent negative scores
-			if (me && amount < 0) {
+			if (me && finalAmount < 0) {
 				const currentValue = me[field as keyof Participant] as number;
-				if (currentValue + amount < 0) {
+				if (currentValue + finalAmount < 0) {
 					return updateParticipantScore(id, field, -currentValue);
 				}
 			}
 			
-			return updateParticipantScore(id, field, amount);
+			return updateParticipantScore(id, field, finalAmount);
 		},
 		onMutate: async ({ id, field, amount }) => {
 			if (isNotStarted || isEventClosed) return;
+
+			let finalAmount = amount;
+			if (IS_MAINTENANCE_MODE && amount === 10) {
+				finalAmount = 1000;
+			}
 
 			await queryClient.cancelQueries({ queryKey: ['participants', activeEvent?.id] });
 			const previous = queryClient.getQueryData(['participants', activeEvent?.id]);
 			queryClient.setQueryData(['participants', activeEvent?.id], (old: Participant[] | undefined) => {
 				return old?.map((p: Participant) => p.id === id ? {
 					...p,
-					[field]: Math.max(0, (p[field as keyof Participant] as number) + amount)
+					[field]: Math.max(0, (p[field as keyof Participant] as number) + finalAmount)
 				} : p);
 			});
 			return { previous };

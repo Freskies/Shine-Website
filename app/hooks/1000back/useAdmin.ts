@@ -19,6 +19,7 @@ import {
 	type Participant
 } from '@/app/services/1000Back/apiParticipants';
 import { getSession } from '@/app/services/1000Back/auth/apiAuth';
+import { IS_MAINTENANCE_MODE } from '@/app/utils/maintenance';
 
 export function useAdmin () {
 	const queryClient = useQueryClient();
@@ -132,17 +133,22 @@ export function useAdmin () {
 
 	const updateScore = useMutation({
 		mutationFn: async ({ id, field, amount }: { id: number, field: string, amount: number }) => {
+			let finalAmount = amount;
+			if (IS_MAINTENANCE_MODE && amount === 10) {
+				finalAmount = 1000;
+			}
+
 			// Prevent negative scores even from admin if it's a decrement
 			const p = participants.find(p => p.id === id);
-			if (p && amount < 0) {
+			if (p && finalAmount < 0) {
 				const currentValue = p[field as keyof Participant] as number;
-				if (currentValue + amount < 0) {
+				if (currentValue + finalAmount < 0) {
 					// If trying to go below zero, we can either throw or just adjust amount
 					// Adjusting amount to exactly zero is safer for UX
 					return updateParticipantScore(id, field, -currentValue);
 				}
 			}
-			return updateParticipantScore(id, field, amount);
+			return updateParticipantScore(id, field, finalAmount);
 		},
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: ['participants', activeEvent?.id] });

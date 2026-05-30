@@ -2,7 +2,6 @@
 
 import { useAdmin } from '@/app/hooks/1000back/useAdmin';
 import LoginGate from '@/app/components/Auth/LoginGate';
-import CelebrationOverlay from '@/app/components/1000back/CelebrationOverlay';
 import { Maintenance } from '@/app/components/Maintenance/Maintenance';
 import { IS_MAINTENANCE_MODE } from '@/app/utils/maintenance';
 import styles from './admin.module.css';
@@ -38,6 +37,7 @@ export default function AdminPage() {
 
 	const isCompleted = !!activeEvent?.completed_at;
 
+	/*
 	if (IS_MAINTENANCE_MODE) {
 		return (
 			<div className={styles.container}>
@@ -48,6 +48,7 @@ export default function AdminPage() {
 			</div>
 		);
 	}
+	*/
 
 	if (isLoading) return null;
 	
@@ -57,7 +58,6 @@ export default function AdminPage() {
 
 	return (
 		<div className={styles.container}>
-			<CelebrationOverlay isCompleted={isCompleted} />
 			<div className={styles.inner}>
 				<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 					<h1 className={styles.title}>Admin Panel</h1>
