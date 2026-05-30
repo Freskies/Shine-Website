@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/app/services/supabase';
-import { getActiveEvent, type Event } from '@/app/services/1000Back/apiEvents';
+import { getActiveEvent, completeEvent, type Event } from '@/app/services/1000Back/apiEvents';
 import { getParticipants, type Participant } from '@/app/services/1000Back/apiParticipants';
 
 export function useGlobalMetrics () {
@@ -13,8 +13,6 @@ export function useGlobalMetrics () {
 	const [sortBy, setSortBy] = useState<keyof Participant>('backflips');
 
 	useEffect(() => {
-		// eslint-disable-next-line react-hooks/set-state-in-effect
-		setNow(Date.now());
 		const interval = setInterval(() => {
 			setNow(Date.now());
 		}, 1000);
@@ -78,12 +76,30 @@ export function useGlobalMetrics () {
 	}), [participants]);
 
 	const targets = { backflips: 1000, pushups: 2026, pullups: 2026 };
+
+	// Auto-completion effect
+	useEffect(() => {
+		if (!activeEvent || activeEvent.completed_at || !activeEvent.start_time) return;
+
+		const isCompleted = 
+			totals.backflips >= targets.backflips &&
+			totals.pushups >= targets.pushups &&
+			totals.pullups >= targets.pullups;
+
+		if (isCompleted) {
+			completeEvent(activeEvent.id).catch(console.error);
+		}
+	}, [totals, activeEvent, targets.backflips, targets.pushups, targets.pullups]);
+
 	const completion = Math.min((totals[activeTab] / targets[activeTab]) * 100, 100);
 
 	const elapsedMs = useMemo(() => {
-		if (!activeEvent?.start_time || !activeEvent.is_active || !now) return 0;
+		if (!activeEvent?.start_time || !now) return 0;
 		const start = new Date(activeEvent.start_time).getTime();
-		return Math.max(0, now - start);
+		const end = activeEvent.completed_at 
+			? new Date(activeEvent.completed_at).getTime() 
+			: now;
+		return Math.max(0, end - start);
 	}, [activeEvent, now]);
 
 	const bpmTotal = useMemo(() => {

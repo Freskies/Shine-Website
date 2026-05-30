@@ -15,18 +15,20 @@ import { getSession } from '@/app/services/1000Back/auth/apiAuth';
 export function useParticipant () {
 	const queryClient = useQueryClient();
 	const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-	const [selectedParticipantId, setSelectedParticipantId] = useState<number | null>(null);
+	const [selectedParticipantId, setSelectedParticipantId] = useState<number | null>(() => {
+		if (typeof window === 'undefined') return null;
+		const savedId = localStorage.getItem('participant_id');
+		return savedId ? Number(savedId) : null;
+	});
 	const [isHydrated, setIsHydrated] = useState(false);
 	const [nameInput, setNameInput] = useState('');
 
-	// Carica il partecipante dal localStorage all'avvio
+	// Segna come idratato al montaggio
 	useEffect(() => {
-		const savedId = localStorage.getItem('participant_id');
-		if (savedId) {
-			// eslint-disable-next-line react-hooks/set-state-in-effect
-			setSelectedParticipantId(Number(savedId));
-		}
-		setIsHydrated(true);
+		const frame = requestAnimationFrame(() => {
+			setIsHydrated(true);
+		});
+		return () => cancelAnimationFrame(frame);
 	}, []);
 
 	// Salva il partecipante nel localStorage quando cambia
@@ -121,7 +123,7 @@ export function useParticipant () {
 	};
 
 	const me = participants.find(p => p.id === selectedParticipantId);
-	const isEventClosed = activeEvent ? !activeEvent.is_active : true;
+	const isEventClosed = activeEvent ? (!activeEvent.is_active || !!activeEvent.completed_at) : true;
 	const isNotStarted = activeEvent ? !activeEvent.start_time : true;
 
 	const totals = useMemo(() => ({

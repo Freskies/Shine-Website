@@ -2,13 +2,14 @@
 
 import { useParticipant } from '@/app/hooks/1000back/useParticipant';
 import LoginGate from '@/app/components/Auth/LoginGate';
+import CelebrationOverlay from '@/app/components/1000back/CelebrationOverlay';
 import styles from './participant.module.css';
 import { Maintenance } from '@/app/components/Maintenance/Maintenance';
+import { IS_MAINTENANCE_MODE } from '@/app/utils/maintenance';
 
 export const dynamic = 'force-dynamic';
 
 export default function ParticipantPage() {
-	const isMaintenance = false;
 	const {
 		isAuthenticated,
 		setIsAuthenticated,
@@ -28,7 +29,7 @@ export default function ParticipantPage() {
 		isLoading
 	} = useParticipant();
 
-	if (isMaintenance) {
+	if (IS_MAINTENANCE_MODE) {
 		return <Maintenance 
 			title="Interfaccia Chiusa" 
 			description="L'inserimento dei dati non è ancora attivo. Sarà disponibile durante l'evento ufficiale."
@@ -93,6 +94,7 @@ export default function ParticipantPage() {
 
 	return (
 		<div className={styles.container}>
+			<CelebrationOverlay isCompleted={!!activeEvent.completed_at} />
 			<div className={styles.cardLarge}>
 				<button 
 					onClick={logoutParticipant}
@@ -103,7 +105,8 @@ export default function ParticipantPage() {
 				<h1 className={styles.participantName}>{me?.name}</h1>
 				<p className={styles.eventLabel}>
 					{activeEvent.name} 
-					{isEventClosed && <span className={styles.closedBadge}> - EVENTO CHIUSO</span>}
+					{activeEvent.completed_at && <span className={styles.closedBadge}> - CHALLENGE COMPLETATA!</span>}
+					{!activeEvent.completed_at && isEventClosed && <span className={styles.closedBadge}> - EVENTO CHIUSO</span>}
 					{!isEventClosed && isNotStarted && <span className={styles.waitingBadge}> - IN ATTESA DI INIZIO</span>}
 				</p>
 				

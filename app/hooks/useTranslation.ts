@@ -15,9 +15,15 @@ export const useTranslation = () => {
 		};
 
 		updateLang();
-		setMounted(true);
+		// Posticipiamo setMounted per evitare il warning di setState sincrono nell'effetto
+		const frame = requestAnimationFrame(() => {
+			setMounted(true);
+		});
 		window.addEventListener('languagechange', updateLang);
-		return () => window.removeEventListener('languagechange', updateLang);
+		return () => {
+			cancelAnimationFrame(frame);
+			window.removeEventListener('languagechange', updateLang);
+		};
 	}, [setMounted]);
 
 	const t = (mounted ? translations[lang] : translations.it) as TranslationKeys;

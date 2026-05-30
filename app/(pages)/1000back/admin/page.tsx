@@ -2,6 +2,9 @@
 
 import { useAdmin } from '@/app/hooks/1000back/useAdmin';
 import LoginGate from '@/app/components/Auth/LoginGate';
+import CelebrationOverlay from '@/app/components/1000back/CelebrationOverlay';
+import { Maintenance } from '@/app/components/Maintenance/Maintenance';
+import { IS_MAINTENANCE_MODE } from '@/app/utils/maintenance';
 import styles from './admin.module.css';
 import { Participant } from '@/app/services/1000Back/apiParticipants';
 import { useState } from 'react';
@@ -33,6 +36,19 @@ export default function AdminPage() {
 	const [isEventsOpen, setIsEventsOpen] = useState(false);
 	const [isControlOpen, setIsControlOpen] = useState(false);
 
+	const isCompleted = !!activeEvent?.completed_at;
+
+	if (IS_MAINTENANCE_MODE) {
+		return (
+			<div className={styles.container}>
+				<Maintenance 
+					title="Admin Temporaneamente Chiuso" 
+					description="Il pannello di controllo è in fase di configurazione per l'evento."
+				/>
+			</div>
+		);
+	}
+
 	if (isLoading) return null;
 	
 	if (isAuthenticated === false) {
@@ -41,6 +57,7 @@ export default function AdminPage() {
 
 	return (
 		<div className={styles.container}>
+			<CelebrationOverlay isCompleted={isCompleted} />
 			<div className={styles.inner}>
 				<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 					<h1 className={styles.title}>Admin Panel</h1>
@@ -118,7 +135,7 @@ export default function AdminPage() {
 							<div className={styles.eventStatusRow}>
 								<div>
 									<p className={styles.statusText}>Stato: <span className={activeEvent?.is_active ? styles.statusActive : styles.statusInactive}>
-										{activeEvent?.is_active ? (activeEvent.start_time ? 'IN CORSO' : 'ATTIVO (PRONTO)') : 'NON SELEZIONATO'}
+										{isCompleted ? 'COMPLETATA' : (activeEvent?.is_active ? (activeEvent.start_time ? 'IN CORSO' : 'ATTIVO (PRONTO)') : 'NON SELEZIONATO')}
 									</span></p>
 									<p className={styles.timeText}>Inizio: {activeEvent?.start_time ? new Date(activeEvent.start_time).toLocaleString() : '-'}</p>
 								</div>
@@ -140,7 +157,7 @@ export default function AdminPage() {
 													}
 												}}
 												className={styles.buttonFinish}
-												disabled={!activeEvent || !activeEvent.is_active}
+												disabled={!activeEvent || !activeEvent.is_active || isCompleted}
 											>
 												FINISH EVENT
 											</button>
@@ -162,12 +179,12 @@ export default function AdminPage() {
 							onChange={(e) => setNewName(e.target.value)}
 							placeholder="Nome"
 							className={styles.input}
-							disabled={!activeEvent}
+							disabled={!activeEvent || isCompleted}
 						/>
 						<button 
 							type="submit"
 							className={styles.buttonAdd}
-							disabled={!activeEvent}
+							disabled={!activeEvent || isCompleted}
 						>
 							AGGIUNGI
 						</button>
@@ -191,12 +208,12 @@ export default function AdminPage() {
 										</div>
 										<div className={styles.buttonContainer}>
 											<div className={styles.buttonRow}>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'backflips', amount: 1 })} className={styles.miniButton}>+1</button>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'backflips', amount: -1 })} className={styles.miniButton}>-1</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'backflips', amount: 1 })} className={styles.miniButton} disabled={isCompleted}>+1</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'backflips', amount: -1 })} className={styles.miniButton} disabled={isCompleted}>-1</button>
 											</div>
 											<div className={styles.buttonRow}>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'backflips', amount: 5 })} className={styles.miniButton}>+5</button>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'backflips', amount: 10 })} className={styles.miniButton}>+10</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'backflips', amount: 5 })} className={styles.miniButton} disabled={isCompleted}>+5</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'backflips', amount: 10 })} className={styles.miniButton} disabled={isCompleted}>+10</button>
 											</div>
 										</div>
 									</div>
@@ -207,12 +224,12 @@ export default function AdminPage() {
 										</div>
 										<div className={styles.buttonContainer}>
 											<div className={styles.buttonRow}>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pushups', amount: 1 })} className={styles.miniButton}>+1</button>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pushups', amount: -1 })} className={styles.miniButton}>-1</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pushups', amount: 1 })} className={styles.miniButton} disabled={isCompleted}>+1</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pushups', amount: -1 })} className={styles.miniButton} disabled={isCompleted}>-1</button>
 											</div>
 											<div className={styles.buttonRow}>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pushups', amount: 5 })} className={styles.miniButton}>+5</button>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pushups', amount: 10 })} className={styles.miniButton}>+10</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pushups', amount: 5 })} className={styles.miniButton} disabled={isCompleted}>+5</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pushups', amount: 10 })} className={styles.miniButton} disabled={isCompleted}>+10</button>
 											</div>
 										</div>
 									</div>
@@ -223,12 +240,12 @@ export default function AdminPage() {
 										</div>
 										<div className={styles.buttonContainer}>
 											<div className={styles.buttonRow}>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pullups', amount: 1 })} className={styles.miniButton}>+1</button>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pullups', amount: -1 })} className={styles.miniButton}>-1</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pullups', amount: 1 })} className={styles.miniButton} disabled={isCompleted}>+1</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pullups', amount: -1 })} className={styles.miniButton} disabled={isCompleted}>-1</button>
 											</div>
 											<div className={styles.buttonRow}>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pullups', amount: 5 })} className={styles.miniButton}>+5</button>
-												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pullups', amount: 10 })} className={styles.miniButton}>+10</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pullups', amount: 5 })} className={styles.miniButton} disabled={isCompleted}>+5</button>
+												<button onClick={() => updateScore.mutate({ id: p.id, field: 'pullups', amount: 10 })} className={styles.miniButton} disabled={isCompleted}>+10</button>
 											</div>
 										</div>
 									</div>

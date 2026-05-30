@@ -4,6 +4,7 @@ export interface Event {
 	id: number;
 	name: string;
 	start_time: string | null;
+	completed_at: string | null;
 	is_active: boolean;
 }
 
@@ -76,6 +77,18 @@ export async function finishEvent (eventId: number) {
 	const { data, error } = await supabase
 		.from('events')
 		.update({ is_active: false })
+		.eq('id', eventId)
+		.select()
+		.single();
+
+	if (error) throw error;
+	return data as Event;
+}
+
+export async function completeEvent (eventId: number) {
+	const { data, error } = await supabase
+		.from('events')
+		.update({ completed_at: new Date().toISOString() })
 		.eq('id', eventId)
 		.select()
 		.single();

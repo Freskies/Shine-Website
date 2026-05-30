@@ -2,6 +2,9 @@
 
 import { useGlobalMetrics } from '@/app/hooks/1000back/useGlobalMetrics';
 import { motion, AnimatePresence } from 'framer-motion';
+import CelebrationOverlay from '@/app/components/1000back/CelebrationOverlay';
+import { Maintenance } from '@/app/components/Maintenance/Maintenance';
+import { IS_MAINTENANCE_MODE } from '@/app/utils/maintenance';
 import styles from './event1000.module.css';
 
 export const dynamic = 'force-dynamic';
@@ -19,6 +22,17 @@ export default function Dashboard () {
 		bpmTotal,
 		sortedParticipants
 	} = useGlobalMetrics();
+
+	if (IS_MAINTENANCE_MODE) {
+		return (
+			<div className={styles.container}>
+				<Maintenance 
+					title="Challenge in Arrivo" 
+					description="La dashboard globale sarà visibile non appena inizierà l'evento."
+				/>
+			</div>
+		);
+	}
 
 	const formatTime = (ms: number) => {
 		const totalSeconds = Math.floor(ms / 1000);
@@ -47,6 +61,7 @@ export default function Dashboard () {
 
 	return (
 		<div className={styles.container}>
+			<CelebrationOverlay isCompleted={!!activeEvent.completed_at} />
 			<div className={styles.inner}>
 				<header className={styles.header}>
 					<h1 className={styles.title}>{activeEvent.name.toUpperCase()}</h1>
@@ -77,7 +92,10 @@ export default function Dashboard () {
 
 				{/* Main Stats */}
 				<div className={styles.statsGrid}>
-					<StatCard label="Tempo Trascorso" value={formatTime(elapsedMs)}/>
+					<StatCard 
+						label={activeEvent.completed_at ? "Durata della challenge" : "Tempo Trascorso"} 
+						value={formatTime(elapsedMs)}
+					/>
 					<StatCard 
 						label={`Totale ${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}`} 
 						value={totals[activeTab].toString()}
